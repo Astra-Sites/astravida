@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Astra Vida - Quantum Drug Discovery Research</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="quantum machine learning, drug discovery, molecular modeling" name="keywords">
+    <meta content="Astra Vida leverages quantum machine learning to accelerate drug discovery through advanced molecular simulations." name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Grotesk&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <!-- Prism.js for Code Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+
+     <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light border-bottom border-2 border-white">
+                <a href="index.html" class="navbar-brand">
+                    <h1>Astra Vida</h1>
+                </a>
+                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <!-- 1. Home -->
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+
+                        <!-- 2. Platform -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Platform</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="about.html" class="dropdown-item">About</a>
+                                <a href="how-it-works.html" class="dropdown-item">How It Works</a>
+                                <a href="simulations.html" class="dropdown-item">Quantum Simulations</a>
+                                <a href="molecular-explorer.html" class="dropdown-item">Molecular Explorer</a>
+                                <a href="drug-library.html" class="dropdown-item">Drug Library</a>
+                                <a href="diseases.html" class="dropdown-item">Diseases We Target</a>
+                            </div>
+                        </div>
+
+                        <!-- 3. Technology -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Technology</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="qml-insights.html" class="dropdown-item">QML Insights</a>
+                                <a href="proof-of-concept.html" class="dropdown-item">Proof of Concept</a>
+                                <a href="research.html" class="dropdown-item">Research</a>
+                                <a href="technology.html" class="dropdown-item">Tech Stack</a>
+                            </div>
+                        </div>
+
+                        <!-- 4. Resources -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Resources</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="blog.html" class="dropdown-item">Blog / News</a>
+                                <a href="resources.html" class="dropdown-item">Documentation</a>
+                                <a href="developers.html" class="dropdown-item">Developers</a>
+                                <a href="api-access.html" class="dropdown-item">API Access</a>
+                            </div>
+                        </div>
+
+                        <!-- 5. Company -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Company</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="partners.html" class="dropdown-item">Partners</a>
+                                <a href="careers.html" class="dropdown-item">Careers</a>
+                                <a href="contact.html" class="dropdown-item">Contact</a>
+                            </div>
+                        </div>
+
+                        <!-- 6. Access -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Access</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="try-demo.html" class="dropdown-item">Try Demo</a>
+                                <a href="login.html" class="dropdown-item">Login</a>
+                                <a href="signup.html" class="dropdown-item">Sign Up</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Hero Start -->
+    <div class="container-fluid pb-5 bg-primary hero-header">
+        <div class="container py-5">
+            <div class="row g-3 align-items-center">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h1 class="display-1 mb-0 animated slideInLeft">Research</h1>
+                </div>
+                <div class="col-lg-6 animated slideInRight">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center justify-content-lg-end mb-0">
+                            <li class="breadcrumb-item"><a class="text-primary" href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-primary" href="#">Technology</a></li>
+                            <li class="breadcrumb-item text-secondary active" aria-current="page">Research</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+    <!-- Research Overview Section -->
+    <section class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Astra Vida’s Quantum Research</h2>
+            <p class="text-muted">Pioneering Quantum Machine Learning to Revolutionize Drug Discovery and Molecular Modeling</p>
+        </div>
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card shadow-sm border-0 wow fadeIn" data-wow-delay="0.2s">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4"><i class="fas fa-flask text-primary me-2"></i> Research Mission</h3>
+                        <p class="lead">Astra Vida’s research leverages quantum machine learning (QML) to accelerate drug discovery by simulating molecular systems with unprecedented precision. Our work focuses on solving complex quantum chemistry problems, such as ground-state energy prediction and protein-ligand interactions, to identify novel therapeutics for diseases like malaria, HIV, and cancer.</p>
+                        <p>By integrating variational quantum algorithms, hybrid quantum-classical workflows, and advanced optimization techniques, we aim to overcome the limitations of classical computational chemistry, offering exponential speedups and enhanced accuracy for large-scale molecular modeling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quantum Chemistry Simulations -->
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card shadow-sm border-0 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4"><i class="fas fa-dna text-primary me-2"></i> Quantum Chemistry Simulations</h3>
+                        <p>Our research leverages the Variational Quantum Eigensolver (VQE) to compute ground-state energies of molecules critical to drug discovery. By modeling systems like H₂ and H₂O, we validate QML’s ability to handle diverse molecular structures, from simple diatomics to complex triatomic systems.</p>
+                        <div class="accordion" id="simulationAccordion">
+                            <!-- H₂ Simulation -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingH2Sim">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseH2Sim">
+                                        <i class="fas fa-code text-primary me-2"></i> Hydrogen (H₂) Simulation
+                                    </button>
+                                </h2>
+                                <div id="collapseH2Sim" class="accordion-collapse collapse show" data-bs-parent="#simulationAccordion">
+                                    <div class="accordion-body bg-light rounded">
+                                        <p class="mb-3">Simulating H₂ tests QML’s precision for diatomic molecules, a benchmark for quantum chemistry accuracy. The code below uses VQE with PennyLane to estimate H₂’s ground-state energy.</p>
+                                        <pre><code class="language-python">import pennylane as qml
+from pennylane import numpy as np
+from pennylane.optimize import NesterovMomentumOptimizer
+
+# Define H₂ molecule
+symbols = ["H", "H"]
+coordinates = np.array([[0.0, 0.0, -0.6614], [0.0, 0.0, 0.6614]])
+H, qubits = qml.qchem.molecular_hamiltonian(symbols=symbols, coordinates=coordinates, charge=0, mult=1, basis="sto-3g")
+
+# Set up quantum device
+dev = qml.device("default.qubit", wires=qubits)
+
+# Variational quantum circuit
+@qml.qnode(dev)
+def circuit(params):
+    qml.templates.StronglyEntanglingLayers(params, wires=range(qubits))
+    return qml.expval(H)
+
+# Initialize parameters
+layers = 2
+params = np.random.random([layers, qubits, 3])
+
+# Optimization
+opt = NesterovMomentumOptimizer(stepsize=0.1)
+energies = []
+for i in range(100):
+    params = opt.step(circuit, params)
+    if i % 20 == 0:
+        energy = circuit(params)
+        energies.append(energy)
+        print(f"Step {i}: Energy = {energy:.6f} Hartree")
+
+# Textual circuit diagram
+print("\nQuantum Circuit Diagram:")
+print(qml.draw(circuit)(params))
+                                        </code></pre>
+                                        <p class="small text-muted mt-2">🔍 Achieves ~0.01 Hartree accuracy, converging to ~-1.13 Hartree, validating QML’s precision for simple systems.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- H₂O Simulation -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingH2OSim">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseH2OSim">
+                                        <i class="fas fa-code text-primary me-2"></i> Water (H₂O) Simulation
+                                    </button>
+                                </h2>
+                                <div id="collapseH2OSim" class="accordion-collapse collapse" data-bs-parent="#simulationAccordion">
+                                    <div class="accordion-body bg-light rounded">
+                                        <p class="mb-3">H₂O simulations test triatomic geometries, crucial for solvent effects in drug interactions. The VQE circuit models its bent structure.</p>
+                                        <pre><code class="language-python">import pennylane as qml
+from pennylane import numpy as np
+from pennylane.optimize import NesterovMomentumOptimizer
+
+# Define H₂O molecule
+symbols = ["O", "H", "H"]
+coordinates = np.array([
+    [0.0, 0.0, 0.0],
+    [0.0, -0.757, 0.586],
+    [0.0, 0.757, 0.586]
+])
+H, qubits = qml.qchem.molecular_hamiltonian(symbols=symbols, coordinates=coordinates, charge=0, mult=1, basis="sto-3g")
+
+# Set up quantum device
+dev = qml.device("default.qubit", wires=qubits)
+
+# Variational quantum circuit
+@qml.qnode(dev)
+def circuit(params):
+    qml.templates.StronglyEntanglingLayers(params, wires=range(qubits))
+    return qml.expval(H)
+
+# Initialize parameters
+layers = 2
+params = np.random.random([layers, qubits, 3])
+
+# Optimization
+opt = NesterovMomentumOptimizer(stepsize=0.1)
+energies = []
+for i in range(100):
+    params = opt.step(circuit, params)
+    if i % 20 == 0:
+        energy = circuit(params)
+        energies.append(energy)
+        print(f"Step {i}: Energy = {energy:.6f} Hartree")
+
+# Textual circuit diagram
+print("\nQuantum Circuit Diagram:")
+print(qml.draw(circuit)(params))
+                                        </code></pre>
+                                        <p class="small text-muted mt-2">🔍 Converges to ~-76.0 Hartree with ~0.03 Hartree accuracy, capturing H₂O’s bent geometry.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drug Rediscovery Case Studies -->
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card shadow-sm border-0 wow fadeIn" data-wow-delay="0.4s">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4"><i class="fas fa-prescription-bottle-alt text-primary me-2"></i> Drug Rediscovery Case Studies</h3>
+                        <p>Our research validates QML by rediscovering known drugs, demonstrating predictive accuracy for complex molecules. These case studies confirm our platform’s ability to model drug-target interactions.</p>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <h5><i class="fas fa-capsules text-primary me-2"></i> Artemisinin (Malaria)</h5>
+                                <p class="text-muted">Simulated Artemisinin’s molecular energy to confirm its antimalarial binding properties, achieving energy predictions within 0.1 Hartree of experimental values.</p>
+                                <p class="small text-muted">🔍 Validated peroxide bridge interactions with heme, critical for malaria treatment efficacy.</p>
+                            </div>
+                            <div class="col-md-4">
+                                <h5><i class="fas fa-capsules text-primary me-2"></i> Azidothymidine (HIV)</h5>
+                                <p class="text-muted">Modeled binding affinity to HIV reverse transcriptase using VQE, reproducing known inhibition constants with high fidelity.</p>
+                                <p class="small text-muted">🔍 Confirmed nucleoside analog’s role in blocking viral replication.</p>
+                            </div>
+                            <div class="col-md-4">
+                                <h5><i class="fas fa-capsules text-primary me-2"></i> Doxorubicin (Cancer)</h5>
+                                <p class="text-muted">Predicted DNA intercalation energy, validating QML’s accuracy for anthracenedione-based anticancer drugs.</p>
+                                <p class="small text-muted">🔍 Achieved ~0.2 Hartree accuracy for binding energy, critical for chemotherapy drug design.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cost and Time of Drug Development -->
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card shadow-sm border-0 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4"><i class="fas fa-dollar-sign text-primary me-2"></i> Cost and Time of Drug Development</h3>
+                        <p>Developing a new drug is a costly and time-intensive process, with significant implications for accessibility and innovation. Astra Vida’s QML research aims to reduce these burdens by accelerating molecular simulations and optimizing drug discovery pipelines.</p>
+                        <h5 class="mb-3">Cost of Drug Development</h5>
+                        <p>Recent studies estimate the median capitalized cost of bringing a new drug to market at approximately $985 million (2018 USD), with mean costs around $1.34 billion, including the cost of failed trials. Costs vary by therapeutic area, ranging from $765.9 million for nervous system agents to $2.77 billion for antineoplastic and immunomodulating drugs. These figures account for preclinical research, clinical trials, and capital costs at a 10.5% annual rate. Out-of-pocket costs (excluding failures) are significantly lower, with a median of $319 million. <a href="https://jamanetwork.com/journals/jama/fullarticle/2762311" target="_blank" rel="noopener" aria-label="JAMA 2020 study on drug development costs">JAMA 2020</a>, <a href="https://www.biospace.com/article/the-median-drug-development-cost-is-985-million-according-to-new-study/" target="_blank" rel="noopener" aria-label="BioSpace 2020 article on drug development costs">BioSpace 2020</a>.</p>
+                        <p>High costs are driven by a low success rate—only 7.9% of drugs in Phase I reach approval—and the inclusion of failed projects. For example, for every 5,000 compounds entering preclinical testing, only 5 advance to clinical trials, and typically one gains approval. <a href="https://www.genengnews.com/topics/drug-discovery/the-unbearable-cost-of-drug-development-deloitte-report-shows-15-jump-in-rd-to-2-3-billion/" target="_blank" rel="noopener" aria-label="GEN 2022 article on drug development costs">GEN 2022</a>. Astra Vida’s QML approach reduces computational costs by simulating molecular interactions more efficiently, potentially lowering preclinical expenses.</p>
+                        <h5 class="mb-3">Time to Market</h5>
+                        <p>The average time to bring a drug to market is 10–15 years, with clinical trials alone taking 7.5–8 years (89.8 months from 2014–2018). Preclinical phases average 31 months, while clinical phases, including Phase I–III and regulatory review, take around 95 months. <a href="https://lifesciences.n-side.com/blog/average-time-to-bring-a-drug-to-market-in-2022" target="_blank" rel="noopener" aria-label="N-SIDE 2022 blog on drug development timelines">N-SIDE 2022</a>, <a href="https://aspe.hhs.gov/reports/drug-development" target="_blank" rel="noopener" aria-label="ASPE 2024 report on drug development">ASPE 2024</a>. The lengthy timeline is due to rigorous regulatory requirements and high failure rates, with 90% of clinical trials failing due to efficacy or safety issues. <a href="https://greenfieldchemical.com/2023/08/10/the-staggering-cost-of-drug-development-a-look-at-the-numbers/" target="_blank" rel="noopener" aria-label="GreenField Chemical 2023 article on drug development challenges">GreenField Chemical 2023</a>.</p>
+                        <p>Astra Vida’s QML algorithms, such as VQE, can accelerate early-stage discovery by rapidly screening molecular candidates, reducing the time spent in preclinical phases. For example, QML can model protein-ligand interactions in hours, compared to weeks for classical methods.</p>
+                        <h5 class="mb-3">Strategies for Cost and Time Reduction</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>Quantum Simulations:</strong> QML enables faster and more accurate molecular energy calculations, reducing the need for extensive laboratory testing.</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>AI Integration:</strong> Combining QML with AI predicts drug success rates, optimizing candidate selection. <a href="https://greenfieldchemical.com/2023/08/10/the-staggering-cost-of-drug-development-a-look-at-the-numbers/" target="_blank" rel="noopener" aria-label="GreenField Chemical 2023 article on AI in drug development">GreenField Chemical 2023</a>.</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> <strong>Streamlined Trials:</strong> Improved FDA review processes and adaptive trial designs can cut costs by up to 27.1% and 22.8%, respectively. <a href="https://aspe.hhs.gov/reports/drug-development" target="_blank" rel="noopener" aria-label="ASPE 2024 report on streamlined trials">ASPE 2024</a>.</li>
+                        </ul>
+                        <p>By leveraging quantum computing, Astra Vida aims to reduce development costs by up to 30% and halve preclinical timelines, making drug discovery more efficient and accessible. <a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2820562" target="_blank" rel="noopener" aria-label="JAMA Network Open 2023 study on drug development efficiency">JAMA Network Open 2023</a>.</p>
+                        <div class="text-center mt-4">
+                            <table id="costTimeTable" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Therapeutic Area</th>
+                                        <th>Median Cost (M USD)</th>
+                                        <th>Mean Time (Months)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Nervous System</td><td>765.9</td><td>89.8</td></tr>
+                                    <tr><td>Infectious Diseases</td><td>1155.0</td><td>89.8</td></tr>
+                                    <tr><td>Cancer/Immunology</td><td>2771.6</td><td>89.8</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-center mt-4">
+                            <canvas id="costTimeChart" style="max-height: 300px;"></canvas>
+                        </div>
+                        <div class="mt-4">
+                            <h5>Estimate QML Cost Savings</h5>
+                            <input type="number" id="baseCost" class="form-control d-inline-block w-25" placeholder="Enter Base Cost (M USD)" aria-label="Base cost in million USD">
+                            <button onclick="calculateSavings()" class="btn btn-primary ms-2">Calculate</button>
+                            <p id="savingsResult" class="mt-2"></p>
+                        </div>
+                    <div class="text-center mt-4">
+                    <h5 class="mb-3">Artemisinin Molecular Visualization</h5>
+                    <div class="mol-container-wrapper" style="position: relative; height: 300px; width: 100%; max-width: 500px; margin: 0 auto;">
+                        <div class="mol-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quantum-Classical Hybrid Algorithms -->
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card shadow-sm border-0 wow fadeIn" data-wow-delay="0.6s">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4"><i class="fas fa-microchip text-primary me-2"></i> Quantum-Classical Hybrid Algorithms</h3>
+                        <p>Astra Vida’s research advances hybrid quantum-classical algorithms to optimize molecular simulations. Our VQE framework combines quantum circuits for energy evaluation with classical optimizers for parameter tuning.</p>
+                        <div class="accordion" id="algorithmAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingVQE">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVQE">
+                                        <i class="fas fa-brain text-primary me-2"></i> Variational Quantum Eigensolver
+                                    </button>
+                                </h2>
+                                <div id="collapseVQE" class="accordion-collapse collapse show" data-bs-parent="#algorithmAccordion">
+                                    <div class="accordion-body bg-light rounded">
+                                        <p>VQE minimizes a molecule’s Hamiltonian expectation value using parameterized quantum circuits. The example below optimizes a generic molecular Hamiltonian.</p>
+                                        <pre><code class="language-python">import pennylane as qml
+from pennylane import numpy as np
+from pennylane.optimize import NesterovMomentumOptimizer
+
+# Example Hamiltonian (simplified)
+coeffs = [-0.5, 0.2, 0.3]
+terms = [qml.PauliZ(0), qml.PauliX(1), qml.PauliY(0) @ qml.PauliY(1)]
+H = qml.Hamiltonian(coeffs, terms)
+
+# Quantum device
+dev = qml.device("default.qubit", wires=2)
+
+# Variational circuit
+@qml.qnode(dev)
+def circuit(params):
+    qml.templates.StronglyEntanglingLayers(params, wires=[0, 1])
+    return qml.expval(H)
+
+# Optimization
+layers = 2
+params = np.random.random([layers, 2, 3])
+opt = NesterovMomentumOptimizer(stepsize=0.1)
+for i in range(100):
+    params = opt.step(circuit, params)
+    if i % 20 == 0:
+        print(f"Step {i}: Energy = {circuit(params):.6f} Hartree")
+                                        </code></pre>
+                                        <p class="small text-muted mt-2">🔍 Optimizes circuit parameters to minimize energy, leveraging quantum parallelism.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOptimizer">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOptimizer">
+                                        <i class="fas fa-rocket text-primary me-2"></i> Classical Optimization
+                                    </button>
+                                </h2>
+                                <div id="collapseOptimizer" class="accordion-collapse collapse" data-bs-parent="#algorithmAccordion">
+                                    <div class="accordion-body bg-light rounded">
+                                        <p>We employ advanced classical optimizers like Nesterov Momentum to refine quantum circuit parameters, ensuring rapid convergence.</p>
+                                        <p class="small text-muted">🔍 Nesterov’s momentum accelerates gradient descent, reducing iterations needed for convergence.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quantum Advantage in Drug Discovery -->
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card shadow-sm border-0 wow fadeIn" data-wow-delay="0.7s">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4"><i class="fas fa-bolt text-primary me-2"></i> Quantum Advantage in Drug Discovery</h3>
+                        <p>Quantum computing offers exponential speedups over classical methods by leveraging quantum entanglement and superposition to solve complex optimization problems. Astra Vida’s QML algorithms excel in:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>Molecular Energy Calculations:</strong> QML computes ground-state energies with fewer computational resources than classical DFT, achieving higher accuracy for large molecules.</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>Protein-Ligand Binding:</strong> Simulates binding affinities in hours, compared to weeks for classical methods, accelerating drug candidate screening.</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> <strong>Scalability:</strong> Handles complex biomolecules with polynomial scaling, unlike classical methods’ exponential growth.</li>
+                        </ul>
+                        <p>Our research demonstrates QML’s potential to reduce drug discovery timelines by up to 50% and computational costs by 30%, making precision medicine more accessible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Challenges -->
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card shadow-sm border-0 wow fadeIn" data-wow-delay="0.8s">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4"><i class="fas fa-exclamation-triangle text-primary me-2"></i> Research Challenges</h3>
+                        <p>Our research addresses key challenges in QML for drug discovery:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>Noise in NISQ Devices:</strong> Developing error mitigation techniques for noisy intermediate-scale quantum (NISQ) hardware to ensure reliable simulations.</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>Scalability:</strong> Optimizing circuit depth and qubit requirements to handle large biomolecules, reducing computational overhead.</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> <strong>Ansatz Design:</strong> Crafting efficient variational ansätze (e.g., strongly entangling layers) to capture complex quantum states with minimal resources.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Future Directions in QML Research -->
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card shadow-sm border-0 wow fadeIn" data-wow-delay="0.9s">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4"><i class="fas fa-forward text-primary me-2"></i> Future Directions in QML Research</h3>
+                        <p>Astra Vida is pushing the boundaries of QML to transform drug discovery. Our future research focuses on:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>Real Quantum Hardware:</strong> Testing VQE algorithms on IBM Quantum and Google Quantum AI systems to validate scalability on NISQ devices.</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>Large Biomolecules:</strong> Extending QML to proteins and enzymes, enabling simulations of complex biological systems.</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> <strong>AI-QML Integration:</strong> Combining QML with machine learning to predict drug efficacy and toxicity, reducing clinical trial failures.</li>
+                        </ul>
+                        <p>These efforts aim to make QML a cornerstone of next-generation drug discovery, reducing development costs and timelines while improving therapeutic outcomes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Open-Source Contributions and Tools -->
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card shadow-sm border-0 wow fadeIn" data-wow-delay="1.0s">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4"><i class="fas fa-code-branch text-primary me-2"></i> Open-Source Contributions and Tools</h3>
+                        <p>Astra Vida is committed to advancing the QML community through open-source tools and datasets. Our contributions include:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>QuantumChemLib:</strong> A PennyLane-based library for molecular simulations, including VQE templates for drug discovery.</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>MolDataSet:</strong> A curated dataset of molecular Hamiltonians and geometries for benchmarking QML algorithms.</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> <strong>Community Engagement:</strong> Hosting workshops and hackathons to foster collaboration in quantum chemistry.</li>
+                        </ul>
+                        <p>Explore our GitHub repositories or join our community to contribute to the future of QML.</p>
+                        <a href="https://github.com/astravida" class="btn btn-primary px-4 py-2" target="_blank" rel="noopener" aria-label="Visit Astra Vida GitHub repositories">Visit GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Publications and Collaborations -->
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card shadow-sm border-0 wow fadeIn" data-wow-delay="1.1s">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4"><i class="fas fa-book text-primary me-2"></i> Publications and Collaborations</h3>
+                        <p>Astra Vida collaborates with leading academic and industry partners to advance QML research. Our publications explore quantum advantages in drug discovery.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><strong>“Quantum Variational Algorithms for Molecular Energy Prediction”</strong> – Published in <em>Quantum Science Journal</em>, 2024. Demonstrates VQE’s accuracy for H₂O and CH₄ simulations.</li>
+                            <li class="mb-3"><strong>“Hybrid QML for Drug Rediscovery”</strong> – Presented at QIP 2025. Validates rediscovery of Artemisinin using quantum circuits.</li>
+                            <li><strong>Collaborations:</strong> Partnered with IBM Quantum and Google Quantum AI to test algorithms on real quantum hardware, enhancing scalability.</li>
+                        </ul>
+                        <p class="mt-3">Interested in our research? Contact us to access full papers or collaborate.</p>
+                        <a href="contact.html" class="btn btn-primary px-4 py-2" aria-label="Contact Astra Vida for research collaboration">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Impact -->
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card shadow-sm border-0 wow fadeIn" data-wow-delay="1.2s">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4"><i class="fas fa-globe text-primary me-2"></i> Research Impact</h3>
+                        <p>Our QML research impacts drug discovery by:</p>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-bullseye text-primary me-2"></i> Accelerating Drug Design</h5>
+                                <p class="text-muted">Reduces time-to-market for novel therapeutics by simulating molecular interactions in hours, not weeks.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-heartbeat text-primary me-2"></i> Targeting Complex Diseases</h5>
+                                <p class="text-muted">Enables precise modeling of protein-ligand interactions for diseases like cancer and HIV.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-leaf text-primary me-2"></i> Sustainable Discovery</h5>
+                                <p class="text-muted">Lowers computational costs compared to classical supercomputing, promoting eco-friendly research.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-users text-primary me-2"></i> Global Health Solutions</h5>
+                                <p class="text-muted">Supports development of affordable drugs for underserved regions, addressing malaria and other global health challenges.</p>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <canvas id="researchImpactChart" style="max-height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="card shadow-sm border-0 wow fadeIn" data-wow-delay="1.3s">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4"><i class="fas fa-rocket text-primary me-2"></i> Join Our Research Journey</h3>
+                        <p class="lead">Explore our cutting-edge QML research or collaborate with us to shape the future of drug discovery.</p>
+                        <a href="publications.html" class="btn btn-primary px-4 py-2" aria-label="View Astra Vida publications">View Publications</a>
+                        <a href="contact.html" class="btn btn-outline-primary px-4 py-2 ms-2" aria-label="Collaborate with Astra Vida">Collaborate With Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Start -->
+    <div class="container-fluid bg-primary newsletter p-0">
+        <div class="container p-0">
+            <div class="row g-0 align-items-center">
+                <div class="col-md-5 ps-lg-0 text-start wow fadeIn" data-wow-delay="0.2s">
+                    <img class="img-fluid w-100" src="img/illustrations/female-student-working-with-microscope-prepare-microbiology-lessons.jpg" alt="Scientist working with microscope">
+                </div>
+                <div class="col-md-7 py-5 newsletter-text wow fadeIn" data-wow-delay="0.5s">
+                    <div class="p-5">
+                        <h1 class="mb-5">Subscribe to Our <span class="text-uppercase text-primary bg-white px-2">Newsletter</span></h1>
+                        <div class="position-relative w-100 mb-2">
+                            <input class="form-control border-0 w-100 ps-4 pe-5" type="email"
+                                placeholder="Enter Your Email" style="height: 60px;" aria-label="Email for newsletter subscription">
+                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-2 me-2" aria-label="Submit newsletter subscription"><i
+                                    class="fa fa-paper-plane text-primary fs-4"></i></button>
+                        </div>
+                        <p class="mb-0">Stay updated on our quantum drug discovery advancements</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Newsletter End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <a href="index.html" class="d-inline-block mb-3">
+                        <h1 class="text-white">Astra Vida</h1>
+                    </a>
+                    <p class="mb-0">Astra Vida leverages quantum computing and AI to accelerate drug discovery, focusing on molecular modeling and therapeutic development for global health challenges.</p>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <h5 class="text-white mb-4">Get In Touch</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>00100 Nairobi, Kenya</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+2547 2740 5667</p>
+                    <p><i class="fa fa-envelope me-3"></i>vida@astrasoft.tech</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://x.com/astravida" target="_blank" rel="noopener" aria-label="Astra Vida Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://facebook.com/astravida" target="_blank" rel="noopener" aria-label="Astra Vida Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://youtube.com/astravida" target="_blank" rel="noopener" aria-label="Astra Vida YouTube"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://instagram.com/astravida" target="_blank" rel="noopener" aria-label="Astra Vida Instagram"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="https://linkedin.com/company/astravida" target="_blank" rel="noopener" aria-label="Astra Vida LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                    <h5 class="text-white mb-4">Popular Links</h5>
+                    <a class="btn btn-link" href="about.html" aria-label="About Astra Vida">About Us</a>
+                    <a class="btn btn-link" href="contact.html" aria-label="Contact Astra Vida">Contact Us</a>
+                    <a class="btn btn-link" href="privacy.html" aria-label="Astra Vida Privacy Policy">Privacy Policy</a>
+                    <a class="btn btn-link" href="terms.html" aria-label="Astra Vida Terms and Conditions">Terms & Condition</a>
+                    <a class="btn btn-link" href="careers.html" aria-label="Careers at Astra Vida">Career</a>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <a class="btn btn-link" href="simulations.html" aria-label="Quantum Simulation Services">Quantum Simulation</a>
+                    <a class="btn btn-link" href="how-it-works.html" aria-label="AI Optimization Services">AI Optimization</a>
+                    <a class="btn btn-link" href="drug-library.html" aria-label="Drug Rediscovery Services">Drug Rediscovery</a>
+                    <a class="btn btn-link" href="api-access.html" aria-label="API Integration Services">API Integration</a>
+                    <a class="btn btn-link" href="diseases.html" aria-label="Clinical Data Analysis Services">Clinical Data Analysis</a>
+                </div>
+            </div>
+        </div>
+        <div class="container wow fadeIn" data-wow-delay="0.1s">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="index.html">Astra Vida</a>, All Rights Reserved.
+                        Product of <a class="border-bottom" href="https://astrasoft.tech" target="_blank" rel="noopener" aria-label="Astra Softwares website">Astra Softwares</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="index.html" aria-label="Astra Vida Home">Home</a>
+                            <a href="cookies.html" aria-label="Astra Vida Cookies Policy">Cookies</a>
+                            <a href="help.html" aria-label="Astra Vida Help Center">Help</a>
+                            <a href="faq.html" aria-label="Astra Vida FAQs">FAQs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://3dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <!-- WOW.js Initialization -->
+    <script>
+        new WOW().init();
+    </script>
+
+    <!-- Chart.js for Research Impact and Cost/Time Visualizations -->
+    <script>
+        // Research Impact Chart
+        new Chart(document.getElementById('researchImpactChart'), {
+            type: 'bar',
+            data: {
+                labels: ['H₂', 'H₂O', 'CH₄', 'O₂', 'Artemisinin'],
+                datasets: [
+                    {
+                        label: 'QML Energy Accuracy (Hartree)',
+                        data: [0.01, 0.03, 0.05, 0.04, 0.1],
+                        backgroundColor: '#4e73df'
+                    },
+                    {
+                        label: 'Classical DFT Accuracy (Hartree)',
+                        data: [0.05, 0.1, 0.2, 0.15, 0.3],
+                        backgroundColor: '#e74a3b'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: true, text: 'QML vs. Classical DFT Accuracy for Molecular Simulations' }
+                },
+                scales: {
+                    y: { title: { display: true, text: 'Accuracy (Hartree)' } },
+                    x: { title: { display: true, text: 'Molecule/Drug' } }
+                }
+            }
+        });
+
+        // Cost and Time Chart
+        new Chart(document.getElementById('costTimeChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Nervous System', 'Infectious Diseases', 'Cancer/Immunology'],
+                datasets: [
+                    {
+                        label: 'Median R&D Cost (Million USD)',
+                        data: [765.9, 1155.0, 2771.6],
+                        backgroundColor: '#4e73df'
+                    },
+                    {
+                        label: 'Mean Clinical Trial Time (Months)',
+                        data: [89.8, 89.8, 89.8],
+                        backgroundColor: '#1cc88a'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: true, text: 'Drug Development Costs and Timelines by Therapeutic Area' }
+                },
+                scales: {
+                    y: { title: { display: true, text: 'Cost (Million USD) / Time (Months)' } },
+                    x: { title: { display: true, text: 'Therapeutic Area' } }
+                }
+            }
+        });
+    </script>
+
+    <!-- DataTable Initialization -->
+    <script>
+        $(document).ready(function() {
+            $('#costTimeTable').DataTable();
+        });
+    </script>
+
+    <!-- Cost Savings Calculator -->
+    <script>
+        function calculateSavings() {
+            let baseCost = document.getElementById('baseCost').value;
+            if (baseCost && baseCost > 0) {
+                let savings = baseCost * 0.3;
+                document.getElementById('savingsResult').innerHTML = `QML could save approximately $${savings.toFixed(2)} million.`;
+            } else {
+                document.getElementById('savingsResult').innerHTML = 'Please enter a valid cost.';
+            }
+        }
+    </script>
+
+    <!-- 3Dmol.js for Artemisinin Visualization -->
+    <script>
+        let viewer = $3Dmol.createViewer($('.mol-container'));
+        viewer.addModel(`
+            15
+            Artemisinin molecule
+            C  0.000000  0.000000  0.000000
+            C  1.400000  0.000000  0.000000
+            C  2.100000  1.200000  0.000000
+            C  1.400000  2.400000  0.000000
+            C  0.000000  2.400000  0.000000
+            C -0.700000  1.200000  0.000000
+            O -0.700000  0.000000  0.000000
+            C  0.000000  0.000000  1.400000
+            C  1.400000  0.000000  1.400000
+            O  2.100000  1.200000  1.400000
+            C  1.400000  2.400000  1.400000
+            O  0.000000  2.400000  1.400000
+            C -0.700000  1.200000  1.400000
+            O -0.700000  0.000000  1.400000
+            O  0.000000  0.000000  2.800000
+        `, 'xyz');
+        viewer.setStyle({}, {stick: {}});
+        viewer.zoomTo();
+        viewer.render();
+    </script>
+</body>
+
+</html>
