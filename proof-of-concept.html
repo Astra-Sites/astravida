@@ -143,209 +143,244 @@
             </div>
         </div>
 
-        <!-- Molecule Case Studies -->
-        <div class="row mb-5">
-            <div class="col-lg-10 mx-auto">
-                <div class="card shadow-sm border-0 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="card-body p-5">
-                        <h3 class="mb-4"><i class="fas fa-dna text-primary me-2"></i> Molecule Case Studies</h3>
-                        <p>Explore how Astra Vida simulates molecules using quantum circuits. Click on each to view the VQE code.</p>
-                        <div class="accordion" id="moleculeAccordion">
-                            <!-- H₂ -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingH2">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseH2">
-                                        <i class="fas fa-code text-primary me-2"></i> Hydrogen (H₂)
-                                    </button>
-                                </h2>
-                                <div id="collapseH2" class="accordion-collapse collapse show" data-bs-parent="#moleculeAccordion">
-                                    <div class="accordion-body bg-light rounded">
-                                        <p class="mb-3">Tests Hamiltonian simulation accuracy for a simple diatomic molecule, serving as a benchmark for QML precision.</p>
-                                        <pre><code class="language-python">import pennylane as qml
+       
+
+<!-- Molecule Case Studies -->
+<div class="row mb-5">
+    <div class="col-lg-10 mx-auto">
+        <div class="card shadow-sm border-0 wow fadeIn" data-wow-delay="0.3s">
+            <div class="card-body p-5">
+                <h3 class="mb-4"><i class="fas fa-dna text-primary me-2"></i> Molecule Case Studies</h3>
+                <p>Explore how Astra Vida simulates molecules using quantum circuits. Click on each to view the VQE code.</p>
+                <div class="accordion" id="moleculeAccordion">
+                    <!-- H₂ -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingH2">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseH2">
+                                <i class="fas fa-code text-primary me-2"></i> Hydrogen (H₂)
+                            </button>
+                        </h2>
+                        <div id="collapseH2" class="accordion-collapse collapse show" data-bs-parent="#moleculeAccordion">
+                            <div class="accordion-body bg-light rounded">
+                                <p class="mb-3">Tests Hamiltonian simulation accuracy for a simple diatomic molecule, serving as a benchmark for QML precision.</p>
+                                <pre><code class="language-python">import pennylane as qml
 from pennylane import numpy as np
 from pennylane.optimize import NesterovMomentumOptimizer
 
-# Define quantum device
-dev = qml.device("default.qubit", wires=4)
-
-# Hamiltonian for H₂
+# Define the Hydrogen molecule (H₂)
 symbols = ["H", "H"]
 coordinates = np.array([[0.0, 0.0, -0.6614], [0.0, 0.0, 0.6614]])
-H, qubits = qml.qchem.molecular_hamiltonian(symbols, coordinates, charge=0, basis="sto-3g")
+H, qubits = qml.qchem.molecular_hamiltonian(
+    symbols=symbols,
+    coordinates=coordinates,
+    charge=0,
+    mult=1,
+    basis="sto-3g"
+)
+
+# Set up quantum device
+dev = qml.device("default.qubit", wires=qubits)
 
 # Variational quantum circuit
-def circuit(params, wires):
-    qml.templates.AngleEmbedding(params[:4], wires=wires)
-    qml.templates.StronglyEntanglingLayers(params[4:], wires=wires)
-
-# VQE cost function
 @qml.qnode(dev)
-def cost_fn(params):
-    circuit(params, wires=range(4))
+def circuit(params):
+    qml.templates.StronglyEntanglingLayers(params, wires=range(qubits))
     return qml.expval(H)
 
+# Initialize parameters
+layers = 2
+params = np.random.random([layers, qubits, 3])
+
 # Optimization
-opt = NesterovMomentumOptimizer(0.1)
-params = np.random.random((8, 4, 3))
+opt = NesterovMomentumOptimizer(stepsize=0.1)
 for i in range(50):
-    params = opt.step(cost_fn, params)
+    params = opt.step(circuit, params)
     if i % 10 == 0:
-        print(f"Step {i}: Energy = {cost_fn(params):.6f} Hartree")
-                                        </code></pre>
-                                        <p class="small text-muted mt-2">🔍 Simulates H₂’s ground-state energy, achieving ~0.01 Hartree accuracy.</p>
-                                    </div>
-                                </div>
+        print(f"Step {i}: Energy = {circuit(params):.6f} Hartree")
+
+# Textual circuit diagram
+print("\nQuantum Circuit Diagram:")
+print(qml.draw(circuit)(params))
+                                </code></pre>
+                                <p class="small text-muted mt-2">🔍 Simulates H₂’s ground-state energy, achieving ~0.01 Hartree accuracy.</p>
                             </div>
-                            <!-- H₂O -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingH2O">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseH2O">
-                                        <i class="fas fa-code text-primary me-2"></i> Water (H₂O)
-                                    </button>
-                                </h2>
-                                <div id="collapseH2O" class="accordion-collapse collapse" data-bs-parent="#moleculeAccordion">
-                                    <div class="accordion-body bg-light rounded">
-                                        <p class="mb-3">Tests triatomic geometries and quantum energy estimation, critical for modeling solvent effects in drug-target interactions.</p>
-                                        <pre><code class="language-python">import pennylane as qml
+                        </div>
+                    </div>
+                    <!-- H₂O -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingH2O">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseH2O">
+                                <i class="fas fa-code text-primary me-2"></i> Water (H₂O)
+                            </button>
+                        </h2>
+                        <div id="collapseH2O" class="accordion-collapse collapse" data-bs-parent="#moleculeAccordion">
+                            <div class="accordion-body bg-light rounded">
+                                <p class="mb-3">Tests triatomic geometries and quantum energy estimation, critical for modeling solvent effects in drug-target interactions.</p>
+                                <pre><code class="language-python">import pennylane as qml
 from pennylane import numpy as np
 from pennylane.optimize import NesterovMomentumOptimizer
 
-# Define quantum device
-dev = qml.device("default.qubit", wires=6)
-
-# Hamiltonian for H₂O
+# Define the Water molecule (H₂O)
 symbols = ["O", "H", "H"]
 coordinates = np.array([
-    [0.0, 0.0, 0.0],  # Oxygen
-    [0.757, 0.586, 0.0],  # H1
-    [-0.757, 0.586, 0.0]  # H2
+    [0.0, 0.0, 0.0],        # Oxygen
+    [0.0, -0.757, 0.586],   # Hydrogen 1
+    [0.0,  0.757, 0.586]    # Hydrogen 2
 ])
-H, qubits = qml.qchem.molecular_hamiltonian(symbols, coordinates, charge=0, basis="sto-3g")
+H, qubits = qml.qchem.molecular_hamiltonian(
+    symbols=symbols,
+    coordinates=coordinates,
+    charge=0,
+    mult=1,
+    basis="sto-3g"
+)
+
+# Set up quantum device
+dev = qml.device("default.qubit", wires=qubits)
 
 # Variational quantum circuit
-def circuit(params, wires):
-    qml.templates.AngleEmbedding(params[:6], wires=wires)
-    qml.templates.StronglyEntanglingLayers(params[6:], wires=wires)
-
-# VQE cost function
 @qml.qnode(dev)
-def cost_fn(params):
-    circuit(params, wires=range(6))
+def circuit(params):
+    qml.templates.StronglyEntanglingLayers(params, wires=range(qubits))
     return qml.expval(H)
 
+# Initialize parameters
+layers = 2
+params = np.random.random([layers, qubits, 3])
+
 # Optimization
-opt = NesterovMomentumOptimizer(0.1)
-params = np.random.random((8, 6, 3))
+opt = NesterovMomentumOptimizer(stepsize=0.1)
 for i in range(50):
-    params = opt.step(cost_fn, params)
+    params = opt.step(circuit, params)
     if i % 10 == 0:
-        print(f"Step {i}: Energy = {cost_fn(params):.6f} Hartree")
-                                        </code></pre>
-                                        <p class="small text-muted mt-2">🔍 Models H₂O’s bent geometry, achieving ~0.03 Hartree accuracy.</p>
-                                    </div>
-                                </div>
+        print(f"Step {i}: Energy = {circuit(params):.6f} Hartree")
+
+# Textual circuit diagram
+print("\nQuantum Circuit Diagram:")
+print(qml.draw(circuit)(params))
+                                </code></pre>
+                                <p class="small text-muted mt-2">🔍 Models H₂O’s bent geometry with VQE, achieving ~0.03 Hartree accuracy and displaying the quantum circuit structure.</p>
                             </div>
-                            <!-- CH₄ -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingCH4">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCH4">
-                                        <i class="fas fa-code text-primary me-2"></i> Methane (CH₄)
-                                    </button>
-                                </h2>
-                                <div id="collapseCH4" class="accordion-collapse collapse" data-bs-parent="#moleculeAccordion">
-                                    <div class="accordion-body bg-light rounded">
-                                        <p class="mb-3">Simulates complex tetrahedral systems, relevant for organic molecules in drug design.</p>
-                                        <pre><code class="language-python">import pennylane as qml
+                        </div>
+                    </div>
+                    <!-- CH₄ -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingCH4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCH4">
+                                <i class="fas fa-code text-primary me-2"></i> Methane (CH₄)
+                            </button>
+                        </h2>
+                        <div id="collapseCH4" class="accordion-collapse collapse" data-bs-parent="#moleculeAccordion">
+                            <div class="accordion-body bg-light rounded">
+                                <p class="mb-3">Simulates complex tetrahedral systems, relevant for organic molecules in drug design.</p>
+                                <pre><code class="language-python">import pennylane as qml
 from pennylane import numpy as np
 from pennylane.optimize import NesterovMomentumOptimizer
 
-# Define quantum device
-dev = qml.device("default.qubit", wires=8)
-
-# Hamiltonian for CH₄
+# Define the Methane molecule (CH₄)
 symbols = ["C", "H", "H", "H", "H"]
 coordinates = np.array([
-    [0.0, 0.0, 0.0],  # Carbon
+    [0.0, 0.0, 0.0],        # Carbon
     [0.629, 0.629, 0.629],  # H1
     [0.629, -0.629, -0.629],  # H2
     [-0.629, 0.629, -0.629],  # H3
     [-0.629, -0.629, 0.629]   # H4
 ])
-H, qubits = qml.qchem.molecular_hamiltonian(symbols, coordinates, charge=0, basis="sto-3g")
+H, qubits = qml.qchem.molecular_hamiltonian(
+    symbols=symbols,
+    coordinates=coordinates,
+    charge=0,
+    mult=1,
+    basis="sto-3g"
+)
+
+# Set up quantum device
+dev = qml.device("default.qubit", wires=qubits)
 
 # Variational quantum circuit
-def circuit(params, wires):
-    qml.templates.AngleEmbedding(params[:8], wires=wires)
-    qml.templates.StronglyEntanglingLayers(params[8:], wires=wires)
-
-# VQE cost function
 @qml.qnode(dev)
-def cost_fn(params):
-    circuit(params, wires=range(8))
+def circuit(params):
+    qml.templates.StronglyEntanglingLayers(params, wires=range(qubits))
     return qml.expval(H)
 
+# Initialize parameters
+layers = 2
+params = np.random.random([layers, qubits, 3])
+
 # Optimization
-opt = NesterovMomentumOptimizer(0.1)
-params = np.random.random((10, 8, 3))
+opt = NesterovMomentumOptimizer(stepsize=0.1)
 for i in range(50):
-    params = opt.step(cost_fn, params)
+    params = opt.step(circuit, params)
     if i % 10 == 0:
-        print(f"Step {i}: Energy = {cost_fn(params):.6f} Hartree")
-                                        </code></pre>
-                                        <p class="small text-muted mt-2">🔍 Models CH₄’s tetrahedral structure, achieving ~0.05 Hartree accuracy.</p>
-                                    </div>
-                                </div>
+        print(f"Step {i}: Energy = {circuit(params):.6f} Hartree")
+
+# Textual circuit diagram
+print("\nQuantum Circuit Diagram:")
+print(qml.draw(circuit)(params))
+                                </code></pre>
+                                <p class="small text-muted mt-2">🔍 Models CH₄’s tetrahedral structure, achieving ~0.05 Hartree accuracy.</p>
                             </div>
-                            <!-- O₂ -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingO2">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseO2">
-                                        <i class="fas fa-code text-primary me-2"></i> Oxygen (O₂)
-                                    </button>
-                                </h2>
-                                <div id="collapseO2" class="accordion-collapse collapse" data-bs-parent="#moleculeAccordion">
-                                    <div class="accordion-body bg-light rounded">
-                                        <p class="mb-3">Tests open-shell molecule with spin handling, critical for reactive species in biochemical systems.</p>
-                                        <pre><code class="language-python">import pennylane as qml
+                        </div>
+                    </div>
+                    <!-- O₂ -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingO2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseO2">
+                                <i class="fas fa-code text-primary me-2"></i> Oxygen (O₂)
+                            </button>
+                        </h2>
+                        <div id="collapseO2" class="accordion-collapse collapse" data-bs-parent="#moleculeAccordion">
+                            <div class="accordion-body bg-light rounded">
+                                <p class="mb-3">Tests open-shell molecule with spin handling, critical for reactive species in biochemical systems.</p>
+                                <pre><code class="language-python">import pennylane as qml
 from pennylane import numpy as np
 from pennylane.optimize import NesterovMomentumOptimizer
 
-# Define quantum device
-dev = qml.device("default.qubit", wires=6)
-
-# Hamiltonian for O₂ (triplet state)
+# Define the Oxygen molecule (O₂)
 symbols = ["O", "O"]
 coordinates = np.array([[0.0, 0.0, -0.6033], [0.0, 0.0, 0.6033]])
-H, qubits = qml.qchem.molecular_hamiltonian(symbols, coordinates, charge=0, basis="sto-3g", spin=2)
+H, qubits = qml.qchem.molecular_hamiltonian(
+    symbols=symbols,
+    coordinates=coordinates,
+    charge=0,
+    mult=3,
+    basis="sto-3g"
+)
+
+# Set up quantum device
+dev = qml.device("default.qubit", wires=qubits)
 
 # Variational quantum circuit
-def circuit(params, wires):
-    qml.templates.AngleEmbedding(params[:6], wires=wires)
-    qml.templates.StronglyEntanglingLayers(params[6:], wires=wires)
-
-# VQE cost function
 @qml.qnode(dev)
-def cost_fn(params):
-    circuit(params, wires=range(6))
+def circuit(params):
+    qml.templates.StronglyEntanglingLayers(params, wires=range(qubits))
     return qml.expval(H)
 
+# Initialize parameters
+layers = 2
+params = np.random.random([layers, qubits, 3])
+
 # Optimization
-opt = NesterovMomentumOptimizer(0.1)
-params = np.random.random((8, 6, 3))
+opt = NesterovMomentumOptimizer(stepsize=0.1)
 for i in range(50):
-    params = opt.step(cost_fn, params)
+    params = opt.step(circuit, params)
     if i % 10 == 0:
-        print(f"Step {i}: Energy = {cost_fn(params):.6f} Hartree")
-                                        </code></pre>
-                                        <p class="small text-muted mt-2">🔍 Models O₂’s triplet state, addressing spin complexity with ~0.04 Hartree accuracy.</p>
-                                    </div>
-                                </div>
+        print(f"Step {i}: Energy = {circuit(params):.6f} Hartree")
+
+# Textual circuit diagram
+print("\nQuantum Circuit Diagram:")
+print(qml.draw(circuit)(params))
+                                </code></pre>
+                                <p class="small text-muted mt-2">🔍 Models O₂’s triplet state, addressing spin complexity with ~0.04 Hartree accuracy.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
 
         <!-- Quantum vs Classical Simulations -->
         <div class="row mb-5">
