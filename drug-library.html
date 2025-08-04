@@ -47,28 +47,74 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light border-bottom border-2 border-white">
                 <a href="index.html" class="navbar-brand">
-                    <h1>iSTUDIO</h1>
+                    <h1>Astra Vida</h1>
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Services</a>
-                        <a href="project.html" class="nav-item nav-link">Projects</a>
+
+                        <!-- 1. Home -->
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+
+                        <!-- 2. Platform -->
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Platform</a>
                             <div class="dropdown-menu bg-light mt-2">
-                                <a href="feature.html" class="dropdown-item">Features</a>
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item active">404 Page</a>
+                                <a href="about.html" class="dropdown-item">About</a>
+                                <a href="feature.html" class="dropdown-item">How It Works</a>
+                                <a href="simulations.html" class="dropdown-item">Quantum Simulations</a>
+                                <a href="molecular-explorer.html" class="dropdown-item">Molecular Explorer</a>
+                                <a href="drug-library.html" class="dropdown-item">Drug Library</a>
+                                <a href="diseases.html" class="dropdown-item">Diseases We Target</a>
                             </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+
+                        <!-- 3. Technology -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Technology</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="qml-insights.html" class="dropdown-item">QML Insights</a>
+                                <a href="proof-of-concept.html" class="dropdown-item">Proof of Concept</a>
+                                <a href="research.html" class="dropdown-item">Research</a>
+                                <a href="technology.html" class="dropdown-item">Tech Stack</a>
+                            </div>
+                        </div>
+
+                        <!-- 4. Resources -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Resources</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="blog.html" class="dropdown-item">Blog / News</a>
+                                <a href="resources.html" class="dropdown-item">Documentation</a>
+                                <a href="developers.html" class="dropdown-item">Developers</a>
+                                <a href="api-access.html" class="dropdown-item">API Access</a>
+                            </div>
+                        </div>
+
+                        <!-- 5. Company -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Company</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="partners.html" class="dropdown-item">Partners</a>
+                                <a href="careers.html" class="dropdown-item">Careers</a>
+                                <a href="contact.html" class="dropdown-item">Contact</a>
+                            </div>
+                        </div>
+
+                        <!-- 6. Access -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Access</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="try-demo.html" class="dropdown-item">Try Demo</a>
+                                <a href="login.html" class="dropdown-item">Login</a>
+                                <a href="signup.html" class="dropdown-item">Sign Up</a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </nav>
@@ -82,14 +128,14 @@
         <div class="container py-5">
             <div class="row g-3 align-items-center">
                 <div class="col-lg-6 text-center text-lg-start">
-                    <h1 class="display-1 mb-0 animated slideInLeft">404 Error</h1>
+                    <h1 class="display-1 mb-0 animated slideInLeft">Explore Our Drug Library</h1>
                 </div>
                 <div class="col-lg-6 animated slideInRight">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center justify-content-lg-end mb-0">
                             <li class="breadcrumb-item"><a class="text-primary" href="#">Home</a></li>
                             <li class="breadcrumb-item"><a class="text-primary" href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-secondary active" aria-current="page">404 Error</li>
+                            <li class="breadcrumb-item text-secondary active" aria-current="page">Testimonial</li>
                         </ol>
                     </nav>
                 </div>
@@ -99,22 +145,96 @@
     <!-- Hero End -->
 
 
-    <!-- 404 Start -->
-    <div class="container-fluid py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container text-center py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <i class="bi bi-exclamation-triangle display-1 text-primary"></i>
-                    <h1 class="display-1">404</h1>
-                    <h1 class="mb-4">Page Not Found</h1>
-                    <p class="mb-4">We’re sorry, the page you have looked for does not exist in our website! Maybe go to our home page or try to use a search?</p>
-                    <a class="btn btn-primary py-3 px-4" href="">Go Back To Home</a>
-                </div>
-            </div>
-        </div>
+<!-- Search & Filters -->
+<div class="container my-5">
+  <div class="row g-3">
+    <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Search by drug name..." id="searchDrug">
     </div>
-    <!-- 404 End -->
-        
+    <div class="col-md-3">
+      <select class="form-select" id="filterDisease">
+        <option selected disabled>Filter by Disease</option>
+        <option>Malaria</option>
+        <option>HIV</option>
+        <option>Cancer</option>
+        <option>Tuberculosis</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <select class="form-select" id="filterStatus">
+        <option selected disabled>Filter by Status</option>
+        <option>Rediscovered</option>
+        <option>Experimental</option>
+        <option>Pending Simulation</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- Drug Cards -->
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4" id="drugCards">
+    <!-- Example Card -->
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Artemisinin</h5>
+          <p class="card-text">Used for treating malaria. Successfully validated through quantum simulation.</p>
+          <span class="badge bg-success">Rediscovered</span>
+        </div>
+        <div class="card-footer text-center">
+          <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#drugModal">View Details</button>
+        </div>
+      </div>
+    </div>
+    <!-- Add more cards here -->
+  </div>
+</div>
+
+<!-- Drug Detail Modal -->
+<div class="modal fade" id="drugModal" tabindex="-1" aria-labelledby="drugModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Artemisinin - Molecule Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div id="viewer" style="width: 100%; height: 300px;"></div>
+        <hr>
+        <p><strong>Disease Targeted:</strong> Malaria</p>
+        <p><strong>SMILES:</strong> COc1ccccc1O</p>
+        <p><strong>Status:</strong> Rediscovered</p>
+        <p><strong>Quantum Simulated Energy:</strong> -154.21 Hartree</p>
+        <p><strong>Description:</strong> Artemisinin is a key antimalarial compound derived from *Artemisia annua*, validated using quantum molecular modeling for its energy landscape and interaction behavior.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Request Compound Section -->
+<div class="container text-center my-5">
+  <h4 class="mb-3">Can't Find a Compound?</h4>
+  <p>Request a compound for simulation or contribute to our expanding drug database.</p>
+  <a href="compound-sumit.html" class="btn btn-dark">Submit a Compound</a>
+</div>
+
+<!-- Optional Script for Viewer -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const element = document.getElementById("viewer");
+    if (element) {
+      const viewer = $3Dmol.createViewer("viewer", { backgroundColor: "white" });
+      const smiles = "COc1ccccc1O"; // Placeholder for artemisinin
+      $3Dmol.download("smi:" + smiles, viewer, {}, function() {
+        viewer.setStyle({}, {stick: {}});
+        viewer.zoomTo();
+        viewer.render();
+      });
+    }
+  });
+</script>
+
 
     <!-- Newsletter Start -->
     <div class="container-fluid bg-primary newsletter p-0">
@@ -227,3 +347,18 @@
 </body>
 
 </html>
+
+
+
+
+<!-- 
+
+Populate the drug cards dynamically from a database
+
+Fetch SMILES/3D models from an API or stored source
+
+Add simulation status updates or timelines
+
+Enable compound submission form logic
+
+-->
