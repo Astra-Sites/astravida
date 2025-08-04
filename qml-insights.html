@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Astra Vida Quantum Drug Discovery System</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Grotesk&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light border-bottom border-2 border-white">
+                <a href="index.html" class="navbar-brand">
+                    <h1>Astra Vida</h1>
+                </a>
+                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+
+                        <!-- 1. Home -->
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+
+                        <!-- 2. Platform -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Platform</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="about.html" class="dropdown-item">About</a>
+                                <a href="feature.html" class="dropdown-item">How It Works</a>
+                                <a href="simulations.html" class="dropdown-item">Quantum Simulations</a>
+                                <a href="molecular-explorer.html" class="dropdown-item">Molecular Explorer</a>
+                                <a href="drug-library.html" class="dropdown-item">Drug Library</a>
+                                <a href="diseases.html" class="dropdown-item">Diseases We Target</a>
+                            </div>
+                        </div>
+
+                        <!-- 3. Technology -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Technology</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="qml-insights.html" class="dropdown-item">QML Insights</a>
+                                <a href="proof-of-concept.html" class="dropdown-item">Proof of Concept</a>
+                                <a href="research.html" class="dropdown-item">Research</a>
+                                <a href="technology.html" class="dropdown-item">Tech Stack</a>
+                            </div>
+                        </div>
+
+                        <!-- 4. Resources -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Resources</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="blog.html" class="dropdown-item">Blog / News</a>
+                                <a href="resources.html" class="dropdown-item">Documentation</a>
+                                <a href="developers.html" class="dropdown-item">Developers</a>
+                                <a href="api-access.html" class="dropdown-item">API Access</a>
+                            </div>
+                        </div>
+
+                        <!-- 5. Company -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Company</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="partners.html" class="dropdown-item">Partners</a>
+                                <a href="careers.html" class="dropdown-item">Careers</a>
+                                <a href="contact.html" class="dropdown-item">Contact</a>
+                            </div>
+                        </div>
+
+                        <!-- 6. Access -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Access</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="try-demo.html" class="dropdown-item">Try Demo</a>
+                                <a href="login.html" class="dropdown-item">Login</a>
+                                <a href="signup.html" class="dropdown-item">Sign Up</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Navbar End -->
+
+
+  <!-- Hero Start -->
+<div class="container-fluid pb-5 bg-primary hero-header">
+    <div class="container py-5">
+        <div class="row g-3 align-items-center">
+            <div class="col-lg-6 text-center text-lg-start">
+                <h1 class="display-1 mb-0 animated slideInLeft">(QML) Insights</h1>
+            </div>
+            <div class="col-lg-6 animated slideInRight">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center justify-content-lg-end mb-0">
+                        <li class="breadcrumb-item"><a class="text-primary" href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-primary" href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-secondary active" aria-current="page">Our Team</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+  <!-- Hero End -->
+
+
+<!-- Header -->
+<section class="container py-5 text-center">
+  <h1 class="display-4 fw-bold">Quantum Machine Learning (QML) Insights</h1>
+  <p class="lead">Dive into the heart of Astra Vida's innovation — where AI meets Quantum to revolutionize drug discovery.</p>
+</section>
+
+<!-- What is QML -->
+<section class="container py-4">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h3><i class="fas fa-brain icon-box me-2"></i>What is QML?</h3>
+      <p>Quantum Machine Learning (QML) is a hybrid approach that merges quantum computing with classical machine learning. Using quantum circuits, we can learn patterns in molecular structures faster than with traditional models — enabling breakthrough solutions in biomedical fields.</p>
+    </div>
+    <div class="col-md-6">
+      <img src="img/diagrams/qml-vs-ml.png" alt="QML vs Classical ML" class="img-fluid rounded">
+    </div>
+  </div>
+</section>
+
+<!-- Use in Drug Discovery -->
+<section class="container py-4">
+  <h3 class="mb-3"><i class="fas fa-capsules icon-box me-2"></i>QML in Drug Discovery</h3>
+  <ul class="list-group">
+    <li class="list-group-item">🔍 Predict binding affinity between drug and target molecules.</li>
+    <li class="list-group-item">📊 Classify compounds for biological activity.</li>
+    <li class="list-group-item">🧬 Simulate molecular energy surfaces using quantum circuits.</li>
+    <li class="list-group-item">🔁 Integrate QML with reinforcement learning for compound optimization.</li>
+  </ul>
+</section>
+
+<!-- Algorithms -->
+<section class="container py-4">
+  <h3><i class="fas fa-project-diagram icon-box me-2"></i>Key QML Algorithms Used</h3>
+  <div class="row">
+    <div class="col-md-6">
+      <ul>
+        <li><strong>VQC</strong> – Variational Quantum Classifier</li>
+        <li><strong>QNN</strong> – Quantum Neural Networks</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <ul>
+        <li><strong>QAE</strong> – Quantum Autoencoders</li>
+        <li><strong>QSVR</strong> – Quantum Support Vector Regression</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Sample Code -->
+<section class="container py-4">
+  <h3><i class="fas fa-code icon-box me-2"></i>Sample QML Code</h3>
+  <p>This example demonstrates a simple quantum neural network using PennyLane:</p>
+  <pre class="bg-light p-3 rounded">
+import pennylane as qml
+from pennylane import numpy as np
+
+dev = qml.device("default.qubit", wires=4)
+
+@qml.qnode(dev)
+def circuit(params):
+    qml.templates.AngleEmbedding(params, wires=range(4))
+    qml.templates.BasicEntanglerLayers(params, wires=range(4))
+    return qml.expval(qml.PauliZ(0))
+
+params = np.random.random(4)
+print(circuit(params))
+  </pre>
+</section>
+
+<!-- QML in Astra Vida Timeline -->
+<section class="container py-4">
+  <h3><i class="fas fa-road icon-box me-2"></i>QML Implementation at Astra Vida</h3>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">✅ <strong>Phase 1:</strong> Rediscover known drugs (validation)</li>
+    <li class="list-group-item">🧠 <strong>Phase 2:</strong> Predict activities of novel molecules</li>
+    <li class="list-group-item">🚀 <strong>Phase 3:</strong> Integrate QML with generative design systems</li>
+  </ul>
+</section>
+
+<!-- Research Resources -->
+<section class="container py-4">
+  <h3><i class="fas fa-book-open icon-box me-2"></i>Recommended Reading & References</h3>
+  <ul>
+    <li><a href="https://arxiv.org/abs/2012.12168" target="_blank">Xanadu: QML for Molecular Energy Prediction</a></li>
+    <li><a href="https://qiskit.org/textbook/ch-machine-learning/machine-learning-qiskit-pytorch.html" target="_blank">IBM Qiskit + PyTorch QML Tutorial</a></li>
+    <li><a href="https://pennylane.ai/qml/demos/tutorial_variational_classifier.html" target="_blank">PennyLane: Variational Classifier Demo</a></li>
+  </ul>
+</section>
+
+
+<!-- Table comaprison -->
+ <div class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Quantum vs. Classical Machine Learning: A Detailed Comparison</h2>
+        <p class="text-muted">Explore the differences between QML and Classical ML, with a focus on their applications in drug discovery.</p>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="table-primary text-center">
+                <tr>
+                    <th scope="col">Aspect</th>
+                    <th scope="col">Quantum Machine Learning (QML)</th>
+                    <th scope="col">Classical Machine Learning (ML)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Computational Model</th>
+                    <td>Utilizes quantum circuits with qubits operating in superposition and entanglement, enabling parallel processing of multiple states in a quantum Hilbert space.</td>
+                    <td>Relies on classical bits (0 or 1) with deterministic computations, processing data sequentially or in parallel using traditional hardware architectures.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Hardware Requirements</th>
+                    <td>Requires quantum computers (e.g., IBM Quantum, Google Sycamore, D-Wave) or quantum simulators running on classical hardware, often limited by current noisy intermediate-scale quantum (NISQ) devices.</td>
+                    <td>Operates on widely available classical hardware like CPUs, GPUs (e.g., NVIDIA), or specialized TPUs, with mature and scalable infrastructure.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Data Representation</th>
+                    <td>Encodes data into quantum states within high-dimensional Hilbert spaces, leveraging quantum properties like superposition for exponentially large state spaces.</td>
+                    <td>Represents data as vectors or matrices in Euclidean spaces, limited by classical dimensionality constraints and requiring explicit feature engineering.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Speed & Efficiency</th>
+                    <td>Offers potential exponential speedup for specific problems (e.g., quantum chemistry simulations, molecular energy calculations) due to quantum parallelism, but limited by current hardware noise.</td>
+                    <td>Scales linearly or polynomially, often slower for high-dimensional or complex datasets like molecular structures, but benefits from optimized algorithms and hardware.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Key Algorithms</th>
+                    <td>Includes Variational Quantum Eigensolver (VQE), Quantum Support Vector Machines (QSVM), Quantum Approximate Optimization Algorithm (QAOA), and quantum neural networks tailored for quantum systems.</td>
+                    <td>Employs well-established algorithms like linear regression, logistic regression, deep neural networks, support vector machines, decision trees, and ensemble methods (e.g., Random Forest, XGBoost).</td>
+                </tr>
+                <tr>
+                    <th scope="row">Drug Discovery Applications</th>
+                    <td>Excels in molecular energy prediction, quantum feature embeddings for compound classification, drug-target interaction modeling, and optimization of lead compounds using quantum circuits.</td>
+                    <td>Used for statistical modeling, quantitative structure-activity relationship (QSAR) analysis, classical feature extraction, and predictive modeling of drug efficacy and toxicity.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Scalability</th>
+                    <td>Currently constrained by NISQ device limitations (e.g., limited qubits, coherence times), making large-scale applications challenging without fault-tolerant quantum computers.</td>
+                    <td>Highly scalable with cloud computing (e.g., AWS, Google Cloud) and optimized frameworks, supporting large datasets and complex models in production environments.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Noise & Error Handling</th>
+                    <td>Susceptible to quantum noise, decoherence, and gate errors, requiring error mitigation techniques or hybrid quantum-classical approaches to achieve reliable results.</td>
+                    <td>Robust to hardware errors, with mature error correction in software (e.g., numerical stability) and reliable performance on stable classical hardware.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Development Tools</th>
+                    <td>Supported by quantum-specific libraries like PennyLane, Qiskit, TensorFlow Quantum, and Cirq, designed for hybrid quantum-classical workflows and quantum circuit design.</td>
+                    <td>Backed by mature libraries like TensorFlow, PyTorch, Scikit-learn, Keras, and Pandas, with extensive community support and integration with data science ecosystems.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Learning Curve</th>
+                    <td>Steep, requiring knowledge of quantum mechanics, linear algebra, and quantum programming, with limited accessible resources for beginners.</td>
+                    <td>Moderate, with extensive tutorials, documentation, and community support; accessible to data scientists with standard programming and ML knowledge.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Current Maturity</th>
+                    <td>Experimental, with early-stage applications in research (e.g., proof-of-concept drug discovery at Astra Vida), limited by hardware and algorithm maturity.</td>
+                    <td>Mature, widely deployed across industries (e.g., healthcare, finance, tech) with proven applications in drug discovery, image recognition, and NLP.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Future Potential</th>
+                    <td>Poised to revolutionize fields like drug discovery by solving complex problems (e.g., protein folding, quantum molecular dynamics) once fault-tolerant quantum computers are available.</td>
+                    <td>Will see incremental improvements through better algorithms and hardware, but limited by classical computing constraints for exponentially complex problems.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Cost of Implementation</th>
+                    <td>High initial costs due to quantum hardware access (e.g., cloud-based quantum services) or simulator requirements, plus specialized expertise needed for development.</td>
+                    <td>Lower costs with accessible hardware, open-source libraries, and widespread expertise, making it cost-effective for most organizations.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Integration with Classical Systems</th>
+                    <td>Requires hybrid quantum-classical workflows, integrating quantum circuits with classical ML pipelines, which can be complex and less standardized.</td>
+                    <td>Seamlessly integrates with existing data pipelines, cloud platforms, and classical software ecosystems, with standardized tools and APIs.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Example Use Case in Drug Discovery</th>
+                    <td>Using VQE to predict ground-state energy of molecules like H₂ or simulating drug-target binding affinities with quantum feature embeddings for improved accuracy.</td>
+                    <td>Applying deep learning to predict drug toxicity or using QSAR models to identify potential lead compounds from large chemical libraries.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<!-- Reason why qml -->
+
+<section class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Why Choose Quantum Machine Learning (QML) or Hybrid Approaches?</h2>
+        <p class="text-muted">Discover why Astra Vida leverages QML and hybrid quantum-classical methods to revolutionize drug discovery.</p>
+    </div>
+    <div class="row g-4">
+        <div class="col-lg-10 mx-auto">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-5">
+                    <p class="lead text-center mb-4">At Astra Vida, we combine quantum computing’s unparalleled computational power with classical machine learning’s robustness to tackle the complexities of drug discovery. Below are the key reasons we choose QML or hybrid approaches over classical-only methods.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-4">
+                            <h5><i class="fas fa-rocket text-primary me-2"></i> Exponential Speedup for Complex Problems</h5>
+                            <p class="text-muted">QML leverages quantum superposition and entanglement to process high-dimensional molecular data exponentially faster than classical ML, enabling rapid simulations of molecular interactions critical for drug discovery (e.g., protein-ligand binding affinities).</p>
+                        </li>
+                        <li class="mb-4">
+                            <h5><i class="fas fa-dna text-primary me-2"></i> Enhanced Molecular Modeling</h5>
+                            <p class="text-muted">Quantum systems naturally represent molecular quantum states, allowing QML to accurately model molecular energy levels and chemical properties (e.g., ground-state energies via Variational Quantum Eigensolver), surpassing classical approximations in precision.</p>
+                        </li>
+                        <li class="mb-4">
+                            <h5><i class="fas fa-layer-group text-primary me-2"></i> Superior Feature Representation</h5>
+                            <p class="text-muted">QML’s quantum embeddings map complex biological data into high-dimensional Hilbert spaces, capturing intricate patterns (e.g., drug-target interactions) that classical feature extraction struggles to uncover without extensive preprocessing.</p>
+                        </li>
+                        <li class="mb-4">
+                            <h5><i class="fas fa-tools text-primary me-2"></i> Hybrid Workflow Efficiency</h5>
+                            <p class="text-muted">Hybrid quantum-classical approaches combine QML’s computational advantages with classical ML’s robust optimization and scalability, enabling practical applications like compound classification and lead optimization on current noisy intermediate-scale quantum (NISQ) devices.</p>
+                        </li>
+                        <li class="mb-4">
+                            <h5><i class="fas fa-lightbulb text-primary me-2"></i> Unlocking Novel Insights</h5>
+                            <p class="text-muted">QML can identify hidden patterns in biological data (e.g., protein folding dynamics) that classical ML might miss, paving the way for discovering novel therapeutics for complex diseases like Alzheimer’s or cancer.</p>
+                        </li>
+                        <li class="mb-4">
+                            <h5><i class="fas fa-globe text-primary me-2"></i> Future-Proofing Drug Discovery</h5>
+                            <p class="text-muted">As fault-tolerant quantum computers emerge, QML will scale to solve problems intractable for classical ML, positioning Astra Vida at the forefront of next-generation drug discovery for global health challenges.</p>
+                        </li>
+                        <li>
+                            <h5><i class="fas fa-hand-holding-heart text-primary me-2"></i> Addressing Underserved Diseases</h5>
+                            <p class="text-muted">QML’s efficiency reduces the time and cost of drug discovery (e.g., from $2.5B and 15 years to potentially half), enabling focus on neglected tropical diseases and high-burden conditions like malaria and tuberculosis, aligning with Astra Vida’s mission.</p>
+                        </li>
+                    </ul>
+                    <div class="text-center mt-4">
+                        <a href="research.html" class="btn btn-primary px-4 py-2">Explore Our QML Research</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- More Insights -->
+
+     <section class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">More Quantum Machine Learning Insights</h2>
+            <p class="text-muted">Discover how quantum computing and machine learning converge to transform drug discovery.</p>
+        </div>
+
+        <div class="accordion" id="qmlInsightsAccordion">
+            <!-- 1. What is the Role of QML in Drug Discovery? -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                        <i class="fa fa-lightbulb text-primary me-2"></i> What is the Role of QML in Drug Discovery?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#qmlInsightsAccordion">
+                    <div class="accordion-body">
+                        Quantum Machine Learning (QML) leverages quantum computing to enhance machine learning tasks, enabling faster and more accurate analysis of complex molecular interactions. In drug discovery, QML optimizes tasks like molecular property prediction, binding affinity modeling, and lead compound optimization, significantly reducing time and cost compared to classical methods.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. How Does QML Improve Molecular Simulations? -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                        <i class="fa fa-dna text-primary me-2"></i> How Does QML Improve Molecular Simulations?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#qmlInsightsAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>⚛️ Simulates quantum systems (e.g., molecular energy levels) with high precision.</li>
+                            <li>📈 Uses quantum-enhanced feature spaces for better data representation.</li>
+                            <li>🔄 Accelerates optimization of molecular structures via variational quantum algorithms.</li>
+                            <li>🧪 Predicts drug-target interactions with improved accuracy over classical ML.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Sample QML Code -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                        <i class="fa fa-code text-primary me-2"></i> Sample Code: QML for Molecular Classification
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#qmlInsightsAccordion">
+                    <div class="accordion-body bg-light rounded">
+                        <pre><code class="language-python">import pennylane as qml
+                            import numpy as np
+
+                            # Define quantum device
+                            dev = qml.device("default.qubit", wires=4)
+
+                            # Quantum circuit for classification
+                            @qml.qnode(dev)
+                            def circuit(params, features):
+                                qml.templates.AngleEmbedding(features, wires=range(4))
+                                qml.templates.StronglyEntanglingLayers(params, wires=range(4))
+                                return qml.expval(qml.PauliZ(0))
+
+                            # Example data
+                            params = np.random.random((2, 4, 3))  # 2 layers, 4 qubits, 3 parameters
+                            features = [0.1, 0.2, 0.3, 0.4]  # Example molecular features
+                            print("Prediction:", circuit(params, features))
+                        </code></pre>
+                        <p class="small text-muted mt-2">🔍 This code uses PennyLane to classify molecular features using a variational quantum circuit.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. What Are the Challenges of QML in Drug Discovery? -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                        <i class="fa fa-exclamation-triangle text-primary me-2"></i> Challenges of QML in Drug Discovery
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#qmlInsightsAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>🛠 Limited access to scalable quantum hardware.</li>
+                            <li>📉 Noise in current quantum devices affects accuracy.</li>
+                            <li>🧮 High computational cost for large molecular systems.</li>
+                            <li>🔗 Integration with classical ML pipelines requires expertise.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Future of QML in Drug Discovery -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                        <i class="fa fa-futbol text-primary me-2"></i> Future of QML in Drug Discovery
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#qmlInsightsAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>🌟 Fault-tolerant quantum computers will enable large-scale simulations.</li>
+                            <li>🚀 Hybrid quantum-classical models will optimize drug pipelines.</li>
+                            <li>🔬 Discovery of novel therapeutics for complex diseases like Alzheimer’s.</li>
+                            <li><a href="https://astravida.com/research" target="_blank">Astra Vida’s Research</a> is pushing these boundaries.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <!-- Newsletter Start -->
+    <div class="container-fluid bg-primary newsletter p-0">
+        <div class="container p-0">
+            <div class="row g-0 align-items-center">
+                <div class="col-md-5 ps-lg-0 text-start wow fadeIn" data-wow-delay="0.2s">
+                    <img class="img-fluid w-100" src="img/bg/brain-cpu.jpg" alt="">
+                </div>
+                <div class="col-md-7 py-5 newsletter-text wow fadeIn" data-wow-delay="0.5s">
+                    <div class="p-5">
+                        <h1 class="mb-5">Subscribe to <span class="text-uppercase text-primary bg-white px-2">Astra Vida Updates</span></h1>
+                        <div class="position-relative w-100 mb-2">
+                            <input class="form-control border-0 w-100 ps-4 pe-5" type="text"
+                                placeholder="Enter Your Email" style="height: 60px;">
+                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-2 me-2"><i
+                                    class="fa fa-paper-plane text-primary fs-4"></i></button>
+                        </div>
+                        <p class="mb-0">Stay updated on our quantum drug discovery advancements</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Newsletter End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <a href="index.html" class="d-inline-block mb-3">
+                        <h1 class="text-white">Astra Vida</h1>
+                    </a>
+                    <p class="mb-0">Astra Vida leverages quantum computing and AI to accelerate drug discovery, focusing on molecular modeling and therapeutic development for global health challenges.</p>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <h5 class="text-white mb-4">Get In Touch</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>123 Quantum Lane, Boston, USA</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p><i class="fa fa-envelope me-3"></i>info@astravida.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                    <h5 class="text-white mb-4">Popular Link</h5>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Privacy Policy</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Career</a>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <a class="btn btn-link" href="">Quantum Simulation</a>
+                    <a class="btn btn-link" href="">AI Optimization</a>
+                    <a class="btn btn-link" href="">Drug Rediscovery</a>
+                    <a class="btn btn-link" href="">API Integration</a>
+                    <a class="btn btn-link" href="">Clinical Data Analysis</a>
+                </div>
+            </div>
+        </div>
+        <div class="container wow fadeIn" data-wow-delay="0.1s">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Astra Vida</a>, All Right Reserved.
+                        Product of <a class="border-bottom" href="https://astrasoft.tech">Astra Softwares</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="">Home</a>
+                            <a href="">Cookies</a>
+                            <a href="">Help</a>
+                            <a href="">FAQs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
