@@ -23,13 +23,27 @@
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
-
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <!-- copy -->
+    <script>
+    function copyCode(button) {
+        const codeBlock = button.nextElementSibling.querySelector("code");
+        const text = codeBlock.innerText;
+
+        navigator.clipboard.writeText(text).then(() => {
+            button.innerText = "Copied!";
+            setTimeout(() => (button.innerText = "Copy Code"), 2000);
+        }).catch(() => {
+            button.innerText = "Error!";
+        });
+    }
+    </script>
 </head>
 
 <body>
@@ -370,6 +384,7 @@
                                 </h2>
                                 <div id="collapseMalariaCode" class="accordion-collapse collapse" data-bs-parent="#malariaAccordion">
                                     <div class="accordion-body bg-light rounded">
+                                        <button class="btn btn-sm btn-outline-primary mb-2" onclick="copyCode(this)">Copy Code</button>
                                         <pre><code class="language-python">import pennylane as qml
 from pennylane import numpy as np
 from pennylane.optimize import NesterovMomentumOptimizer
@@ -437,6 +452,7 @@ for i in range(50):
                                 </h2>
                                 <div id="collapseTBCode" class="accordion-collapse collapse" data-bs-parent="#tbAccordion">
                                     <div class="accordion-body bg-light rounded">
+                                        <button class="btn btn-sm btn-outline-primary mb-2" onclick="copyCode(this)">Copy Code</button>
                                         <pre><code class="language-python">import pennylane as qml
 from pennylane import numpy as np
 from pennylane.optimize import NesterovMomentumOptimizer
@@ -504,6 +520,7 @@ for i in range(50):
                                 </h2>
                                 <div id="collapseHIVCode" class="accordion-collapse collapse" data-bs-parent="#hivAccordion">
                                     <div class="accordion-body bg-light rounded">
+                                        <button class="btn btn-sm btn-outline-primary mb-2" onclick="copyCode(this)">Copy Code</button>
                                         <pre><code class="language-python">import pennylane as qml
 from pennylane import numpy as np
 from pennylane.optimize import NesterovMomentumOptimizer
@@ -571,6 +588,7 @@ for i in range(50):
                                 </h2>
                                 <div id="collapseCOVIDCode" class="accordion-collapse collapse" data-bs-parent="#covidAccordion">
                                     <div class="accordion-body bg-light rounded">
+                                <button class="btn btn-sm btn-outline-primary mb-2" onclick="copyCode(this)">Copy Code</button>
                                         <pre><code class="language-python">import pennylane as qml
 from pennylane import numpy as np
 from pennylane.optimize import NesterovMomentumOptimizer
@@ -638,6 +656,7 @@ for i in range(50):
                                 </h2>
                                 <div id="collapseDiabetesCode" class="accordion-collapse collapse" data-bs-parent="#diabetesAccordion">
                                     <div class="accordion-body bg-light rounded">
+                                        <button class="btn btn-sm btn-outline-primary mb-2" onclick="copyCode(this)">Copy Code</button>
                                         <pre><code class="language-python">import pennylane as qml
 from pennylane import numpy as np
 from pennylane.optimize import NesterovMomentumOptimizer
@@ -705,6 +724,7 @@ for i in range(50):
                                 </h2>
                                 <div id="collapseCancerCode" class="accordion-collapse collapse" data-bs-parent="#cancerAccordion">
                                     <div class="accordion-body bg-light rounded">
+                                        <button class="btn btn-sm btn-outline-primary mb-2" onclick="copyCode(this)">Copy Code</button>
                                         <pre><code class="language-python">import pennylane as qml
 from pennylane import numpy as np
 from pennylane.optimize import NesterovMomentumOptimizer
