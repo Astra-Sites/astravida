@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Astra Vida - Admin Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="quantum drug discovery, admin dashboard, user management, simulations" name="keywords">
+    <meta content="Manage users, simulations, API keys, and system metrics for Astra Vida." name="description">
+
+    <!-- Favicon -->
+    <link href="../../img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../../lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../../css/style.css" rel="stylesheet">
+
+    <!-- Minimal Custom Styles -->
+    <style>
+        .mol-container-wrapper {
+            position: relative;
+            height: 300px;
+            max-width: 100%;
+        }
+        .mol-container-sample {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top p-2">
+        <button class="btn btn-outline-primary d-lg-none me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+            <i class="fas fa-bars"></i>
+        </button>
+        <a href="admin.html" class="navbar-brand">
+            <h3 class="text-primary fw-bold mb-0">Astra Vida Admin Dashboard</h3>
+        </a>
+        <div class="ms-auto d-flex flex-column flex-sm-row align-items-center">
+            <!-- Notifications Dropdown -->
+            <div class="dropdown me-sm-3 mb-2 mb-sm-0">
+                <a href="#" class="text-dark dropdown-toggle" data-bs-toggle="dropdown">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge bg-danger rounded-circle position-absolute" style="top: 0; right: -10px;">3</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end p-0" style="min-width: 300px;">
+                    <div class="p-3 border-bottom">
+                        <h6 class="fw-bold">Notifications</h6>
+                    </div>
+                    <div class="p-3 notifications">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span><i class="fas fa-check-circle text-success me-2"></i>New user registered - 1h ago</span>
+                            <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span><i class="fas fa-exclamation-circle text-warning me-2"></i>Simulation #124 failed - 2h ago</span>
+                            <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span><i class="fas fa-users text-primary me-2"></i>API quota exceeded - 4h ago</span>
+                            <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    <div class="p-3 border-top text-center">
+                        <a href="#" class="text-primary">View All</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Admin Profile Dropdown -->
+            <div class="dropdown">
+                <a href="#" class="text-dark dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
+                    <img src="../../img/dashboard/avatar.jpg" alt="Avatar" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+                    <span id="user-name">Admin User</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a href="#profile" class="dropdown-item">Profile</a>
+                    <a href="#settings" class="dropdown-item">Settings</a>
+                    <a href="/auth/logout" class="dropdown-item">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Topbar End -->
+
+    <!-- Sidebar Start -->
+    <div class="offcanvas offcanvas-start bg-dark text-light vh-100 p-3 overflow-auto" id="sidebar">
+        <div class="offcanvas-header">
+            <h5 class="text-white fw-bold">Astra Vida</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <a href="admin.html" class="nav-link text-light active bg-primary rounded mb-2"><i class="fas fa-tachometer-alt me-2"></i> Admin Dashboard</a>
+            <a href="#users" class="nav-link text-light rounded mb-2"><i class="fas fa-users me-2"></i> User Management</a>
+            <a href="#simulations" class="nav-link text-light rounded mb-2"><i class="fas fa-atom me-2"></i> Simulations</a>
+            <a href="#api-keys" class="nav-link text-light rounded mb-2"><i class="fas fa-key me-2"></i> API Keys</a>
+            <a href="#metrics" class="nav-link text-light rounded mb-2"><i class="fas fa-chart-line me-2"></i> System Metrics</a>
+            <a href="#logs" class="nav-link text-light rounded mb-2"><i class="fas fa-file-alt me-2"></i> Audit Logs</a>
+            <a href="#settings" class="nav-link text-light rounded mb-2"><i class="fas fa-cog me-2"></i> Settings</a>
+        </div>
+    </div>
+    <!-- Sidebar End -->
+
+    <!-- Content Start -->
+    <div class="content ms-lg-5 p-4">
+        <!-- Hero Start -->
+        <div class="container-fluid py-5 bg-light mb-5">
+            <div class="container py-4">
+                <h1 class="display-4 mb-4 fw-bold animate__animated animate__fadeIn" data-wow-delay="0.1s">
+                    Admin Dashboard
+                </h1>
+                <p class="text-muted mb-4">Manage users, simulations, API keys, and system metrics for Astra Vida.</p>
+                <div class="row g-4">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card shadow border-0 rounded-3 text-center animate__animated animate__fadeIn" data-wow-delay="0.2s">
+                            <div class="card-body">
+                                <h5 class="fw-bold"><i class="fas fa-users me-2"></i>Total Users</h5>
+                                <p class="display-6 text-primary" id="total-users">150</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card shadow border-0 rounded-3 text-center animate__animated animate__fadeIn" data-wow-delay="0.3s">
+                            <div class="card-body">
+                                <h5 class="fw-bold"><i class="fas fa-atom me-2"></i>Active Simulations</h5>
+                                <p class="display-6 text-primary" id="active-simulations">25</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card shadow border-0 rounded-3 text-center animate__animated animate__fadeIn" data-wow-delay="0.4s">
+                            <div class="card-body">
+                                <h5 class="fw-bold"><i class="fas fa-server me-2"></i>Server Uptime</h5>
+                                <p class="display-6 text-primary" id="server-uptime">99.9%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->
+
+        <!-- Admin Sections Start -->
+        <section class="container py-5">
+            <div class="row g-4">
+                <!-- User Management -->
+                <div class="col-12" id="users">
+                    <div class="card shadow border-0 rounded-3 animate__animated animate__fadeIn" data-wow-delay="0.1s">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4"><i class="fas fa-users text-primary me-2"></i>User Management</h3>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Organization</th>
+                                            <th>Role</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>John Doe</td>
+                                            <td>john.doe@example.com</td>
+                                            <td>Quantum Research Inc.</td>
+                                            <td>User</td>
+                                            <td><span class="badge bg-success">Active</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary rounded-pill me-1" onclick="editUser('john.doe@example.com')"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-outline-danger rounded-pill" onclick="deactivateUser('john.doe@example.com')"><i class="fas fa-ban"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jane Smith</td>
+                                            <td>jane.smith@example.com</td>
+                                            <td>BioTech Ltd.</td>
+                                            <td>Admin</td>
+                                            <td><span class="badge bg-success">Active</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary rounded-pill me-1" onclick="editUser('jane.smith@example.com')"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-outline-danger rounded-pill" onclick="deactivateUser('jane.smith@example.com')"><i class="fas fa-ban"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button class="btn btn-primary rounded-pill mt-3" onclick="addUser()">Add New User</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simulation Oversight -->
+                <div class="col-12" id="simulations">
+                    <div class="card shadow border-0 rounded-3 animate__animated animate__fadeIn" data-wow-delay="0.2s">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4"><i class="fas fa-atom text-primary me-2"></i>Simulation Oversight</h3>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Molecule</th>
+                                            <th>Target</th>
+                                            <th>Submitted By</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Acetaminophen</td>
+                                            <td>COX-2</td>
+                                            <td>john.doe@example.com</td>
+                                            <td>2025-08-03</td>
+                                            <td><span class="badge bg-success">Completed</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary rounded-pill me-1" onclick="viewSimulation('123')">View</button>
+                                                <button class="btn btn-sm btn-outline-danger rounded-pill" onclick="cancelSimulation('123')">Cancel</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ibuprofen</td>
+                                            <td>COX-1</td>
+                                            <td>jane.smith@example.com</td>
+                                            <td>2025-08-02</td>
+                                            <td><span class="badge bg-warning">Pending</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary rounded-pill me-1" onclick="viewSimulation('124')">View</button>
+                                                <button class="btn btn-sm btn-outline-danger rounded-pill" onclick="cancelSimulation('124')">Cancel</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Key Management -->
+                <div class="col-12 col-lg-6" id="api-keys">
+                    <div class="card shadow border-0 rounded-3 animate__animated animate__fadeIn" data-wow-delay="0.3s">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4"><i class="fas fa-key text-primary me-2"></i>API Key Management</h3>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Key</th>
+                                            <th>User</th>
+                                            <th>Created</th>
+                                            <th>Status</th>
+                                            <th>Usage</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>sk_12345...xyz</td>
+                                            <td>john.doe@example.com</td>
+                                            <td>2025-08-01</td>
+                                            <td><span class="badge bg-success">Active</span></td>
+                                            <td>150/1000</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary rounded-pill me-1" onclick="copyKey('sk_12345...xyz')"><i class="fas fa-copy"></i></button>
+                                                <button class="btn btn-sm btn-outline-danger rounded-pill" onclick="revokeKey('sk_12345...xyz')"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button class="btn btn-primary rounded-pill mt-3" onclick="generateKey()">Generate New Key</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Molecular Explorer -->
+                <div class="col-12 col-lg-6">
+                    <div class="card shadow border-0 rounded-3 animate__animated animate__fadeIn" data-wow-delay="0.4s">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4"><i class="fas fa-dna text-primary me-2"></i>Molecular Explorer</h3>
+                            <p class="text-muted">Simulation ID: 123 | Submitted By: john.doe@example.com</p>
+                            <div class="mol-container-wrapper mx-auto">
+                                <div class="mol-container-sample"></div>
+                            </div>
+                            <button class="btn btn-primary rounded-pill mt-3" onclick="toggleStyle('sample')">Toggle Style</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audit Logs -->
+                <div class="col-12" id="logs">
+                    <div class="card shadow border-0 rounded-3 animate__animated animate__fadeIn" data-wow-delay="0.5s">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4"><i class="fas fa-file-alt text-primary me-2"></i>Audit Logs</h3>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Event</th>
+                                            <th>User</th>
+                                            <th>Timestamp</th>
+                                            <th>Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>User Login</td>
+                                            <td>john.doe@example.com</td>
+                                            <td>2025-08-05 09:00</td>
+                                            <td>IP: 192.168.1.1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Simulation Submitted</td>
+                                            <td>jane.smith@example.com</td>
+                                            <td>2025-08-04 15:30</td>
+                                            <td>Simulation ID: 124</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button class="btn btn-primary rounded-pill mt-3" onclick="viewAllLogs()">View All Logs</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Settings -->
+                <div class="col-12 col-lg-6" id="settings">
+                    <div class="card shadow border-0 rounded-3 animate__animated animate__fadeIn" data-wow-delay="0.6s">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4"><i class="fas fa-cog text-primary me-2"></i>System Settings</h3>
+                            <ul class="list-unstyled">
+                                <li><strong>Simulation Limit:</strong> 100 per user/month</li>
+                                <li><strong>API Quota:</strong> 1000 calls/month</li>
+                                <li><strong>Notifications:</strong> Enabled</li>
+                            </ul>
+                            <button class="btn btn-primary rounded-pill mt-3" onclick="editSettings()">Edit Settings</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Admin Sections End -->
+
+        <!-- Call to Action Start -->
+        <div class="container-fluid bg-primary py-5">
+            <div class="container text-center">
+                <h2 class="text-white mb-4 fw-bold">Manage Astra Vida</h2>
+                <p class="text-white mb-5">Oversee users, simulations, and system configurations to ensure smooth operations.</p>
+                <div class="d-flex justify-content-center">
+                    <a href="#users" class="btn btn-outline-light rounded-pill px-4 me-3">Manage Users</a>
+                    <a href="#simulations" class="btn btn-outline-light rounded-pill px-4">View Simulations</a>
+                </div>
+            </div>
+        </div>
+        <!-- Call to Action End -->
+    </div>
+    <!-- Content End -->
+
+    <!-- Footer Start -->
+    <div class="bg-dark text-light text-center py-3">
+        All rights reserved Astra Softwares
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../lib/wow/wow.min.js"></script>
+    <script src="../../lib/easing/easing.min.js"></script>
+    <script src="https://3dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+
+    <!-- JavaScript for Admin Functionality -->
+    <script>
+        // Initialize WOW.js
+        new WOW().init();
+
+        // Responsive Molecular Explorer
+        function resizeViewer() {
+            const width = $('.mol-container-wrapper').width();
+            const height = window.innerWidth <= 576 ? 150 : window.innerWidth <= 992 ? 200 : 300;
+            $('.mol-container-wrapper').css({ height: `${height}px` });
+            viewerSample.setWidth(width);
+            viewerSample.setHeight(height);
+            viewerSample.render();
+        }
+
+        // Initialize 3Dmol.js
+        let viewerSample = $3Dmol.createViewer($('.mol-container-sample'));
+        viewerSample.addModel(`
+            10
+            Sample Molecule
+            C  0.000000  0.000000  0.000000
+            C  1.400000  0.000000  0.000000
+            N  1.400000  1.200000  0.000000
+            C  0.000000  1.200000  0.000000
+            O  0.000000  0.000000  1.400000
+            C  1.400000  0.000000  1.400000
+            C  2.800000  0.000000  0.000000
+            C  2.800000  1.200000  0.000000
+            N  1.400000  2.400000  0.000000
+            C  0.000000  2.400000  0.000000
+        `, 'xyz');
+        viewerSample.setStyle({}, {stick: {}});
+        viewerSample.zoomTo();
+        viewerSample.render();
+
+        function toggleStyle(mol) {
+            let viewer = eval(`viewer${mol.charAt(0).toUpperCase() + mol.slice(1)}`);
+            let isStick = viewer.getStyle().stick !== undefined;
+            viewer.setStyle({}, isStick ? {sphere: {}} : {stick: {}});
+            viewer.render();
+        }
+
+        // Placeholder functions for admin actions
+        function editUser(email) {
+            alert(`Edit User: ${email}`);
+        }
+
+        function deactivateUser(email) {
+            alert(`Deactivate User: ${email}`);
+        }
+
+        function addUser() {
+            alert('Add New User: Redirect to user creation form');
+        }
+
+        function viewSimulation(id) {
+            alert(`View Simulation: ID ${id}`);
+        }
+
+        function cancelSimulation(id) {
+            alert(`Cancel Simulation: ID ${id}`);
+        }
+
+        function copyKey(key) {
+            navigator.clipboard.writeText(key).then(() => alert('Key copied to clipboard!'));
+        }
+
+        function revokeKey(key) {
+            alert(`Revoke API Key: ${key}`);
+        }
+
+        function generateKey() {
+            alert('Generate New API Key: Call /api/keys/generate');
+        }
+
+        function viewAllLogs() {
+            alert('View All Audit Logs');
+        }
+
+        function editSettings() {
+            alert('Edit System Settings');
+        }
+
+        // Dismiss Notifications
+        $(document).on('click', '.close-btn', function() {
+            $(this).parent().fadeOut(300, function() { $(this).remove(); });
+            const count = $('.notifications .d-flex').length - 1;
+            $('.badge.bg-danger').text(count > 0 ? count : '');
+        });
+
+        // Initialize and handle responsiveness
+        $(document).ready(function() {
+            // Resize Molecular Explorer
+            resizeViewer();
+            $(window).resize(resizeViewer);
+        });
+    </script>
+
+    <!-- Template Javascript -->
+    <script src="../../js/main.js"></script>
+</body>
+
+</html>

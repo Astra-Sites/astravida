@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Astra Vida - User Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="quantum drug discovery, user dashboard, simulations, API keys" name="keywords">
+    <meta content="Manage your Astra Vida account, access API keys, view simulations, and explore molecular data." name="description">
+
+    <!-- Favicon -->
+    <link href="../../img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../../lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../../css/style.css" rel="stylesheet">
+
+    <!-- Minimal Custom Styles -->
+    <style>
+        .mol-container-wrapper {
+            position: relative;
+            height: 300px;
+            max-width: 100%;
+        }
+        .mol-container-sample {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top p-2">
+        <button class="btn btn-outline-primary d-lg-none me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+            <i class="fas fa-bars"></i>
+        </button>
+        <a href="dashboard.html" class="navbar-brand">
+            <h3 class="text-primary fw-bold mb-0 ms-2">Astra Vida</h3>
+        </a>
+        <div class="ms-auto d-flex flex-column flex-sm-row align-items-center">
+            <!-- Notifications Dropdown -->
+            <div class="dropdown me-sm-3 mb-2 mb-sm-0">
+                <a href="#" class="text-dark dropdown-toggle" data-bs-toggle="dropdown">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge bg-danger rounded-circle position-absolute" style="top: 0; right: -10px;">3</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end p-0" style="min-width: 300px;">
+                    <div class="p-3 border-bottom">
+                        <h6 class="fw-bold">Notifications</h6>
+                    </div>
+                    <div class="p-3 notifications">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span><i class="fas fa-check-circle text-success me-2"></i>Simulation #123 completed - 1h ago</span>
+                            <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span><i class="fas fa-exclamation-circle text-warning me-2"></i>API key nearing quota - 2h ago</span>
+                            <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span><i class="fas fa-users text-primary me-2"></i>New forum post replied - 4h ago</span>
+                            <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    <div class="p-3 border-top text-center">
+                        <a href="#" class="text-primary">View All</a>
+                    </div>
+                </div>
+            </div>
+            <!-- User Profile Dropdown -->
+            <div class="dropdown">
+                <a href="#" class="text-dark dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
+                    <img src="https://i.postimg.cc/VsGy31mV/6560470.jpg" alt="Avatar" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+                    <span id="user-name">John Doe</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a href="#profile" class="dropdown-item">Profile</a>
+                    <a href="#settings" class="dropdown-item">Settings</a>
+                    <a href="/auth/logout" class="dropdown-item">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Topbar End -->
+
+    <!-- Sidebar Start -->
+    <div class="offcanvas offcanvas-start bg-dark text-light vh-100 p-3 overflow-auto" id="sidebar">
+        <div class="offcanvas-header">
+            <h5 class="text-white fw-bold">Astra Vida</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <a href="dashboard.html" class="nav-link text-light active bg-primary rounded mb-2"><i class="fas fa-home me-2"></i> Dashboard Home</a>
+            <a href="simulations.html" class="nav-link text-light rounded mb-2"><i class="fas fa-atom me-2"></i> Simulations</a>
+            <a href="projects.html" class="nav-link text-light rounded mb-2"><i class="fas fa-project-diagram me-2"></i> Projects</a>
+            <a href="api-access.html" class="nav-link text-light rounded mb-2"><i class="fas fa-key me-2"></i> API Access</a>
+            <a href="https://community.astravida.com" class="nav-link text-light rounded mb-2"><i class="fas fa-users me-2"></i> Community</a>
+            <a href="#settings" class="nav-link text-light rounded mb-2"><i class="fas fa-cog me-2"></i> Settings</a>
+        </div>
+    </div>
+    <!-- Sidebar End -->
+
+    <!-- Content Start -->
+    <div class="content ms-lg-5 p-4">
+        <!-- Hero Start -->
+        <div class="container-fluid py-5 bg-light mb-5">
+            <div class="container py-4">
+                <h1 class="display-4 mb-4 fw-bold animate__animated animate__fadeIn" data-wow-delay="0.1s">
+                    Welcome, <span id="hero-user-name" class="text-primary">Ismael</span>
+                </h1>
+                <p class="text-muted mb-4">Your hub for quantum drug discovery: manage simulations, projects, and API access.</p>
+                <div class="row g-4">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card shadow border-0 rounded-3 text-center animate__animated animate__fadeIn" data-wow-delay="0.2s">
+                            <div class="card-body">
+                                <h5 class="fw-bold"><i class="fas fa-project-diagram me-2"></i>Active Projects</h5>
+                                <p class="display-6 text-primary" id="active-projects">3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card shadow border-0 rounded-3 text-center animate__animated animate__fadeIn" data-wow-delay="0.3s">
+                            <div class="card-body">
+                                <h5 class="fw-bold"><i class="fas fa-atom me-2"></i>Simulations Run</h5>
+                                <p class="display-6 text-primary" id="simulations-run">12</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card shadow border-0 rounded-3 text-center animate__animated animate__fadeIn" data-wow-delay="0.4s">
+                            <div class="card-body">
+                                <h5 class="fw-bold"><i class="fas fa-key me-2"></i>API Calls This Month</h5>
+                                <p class="display-6 text-primary" id="api-calls">150</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->
+
+        <!-- Dashboard Sections Start -->
+        <section class="container py-5">
+            <div class="row g-4">
+                <!-- Profile Overview -->
+                <div class="col-12 col-lg-6">
+                    <div class="card shadow border-0 rounded-3 animate__animated animate__fadeIn" data-wow-delay="0.1s" id="profile">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4"><i class="fas fa-user text-primary me-2"></i>Profile Overview</h3>
+                            <ul class="list-unstyled">
+                                <li><strong>Name:</strong> <span id="profile-name">John Doe</span></li>
+                                <li><strong>Email:</strong> <span id="profile-email">john.doe@example.com</span></li>
+                                <li><strong>Organization:</strong> <span id="profile-org">Quantum Research Inc.</span></li>
+                                <li><strong>Joined:</strong> <span id="profile-joined">January 15, 2025</span></li>
+                            </ul>
+                            <button class="btn btn-primary rounded-pill mt-3" onclick="editProfile()">Edit Profile</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Keys -->
+                <div class="col-12 col-lg-6">
+                    <div class="card shadow border-0 rounded-3 animate__animated animate__fadeIn" data-wow-delay="0.2s" id="api-keys">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4"><i class="fas fa-key text-primary me-2"></i>API Keys</h3>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Key</th>
+                                            <th>Created</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>sk_12345...xyz</td>
+                                            <td>2025-08-01</td>
+                                            <td><span class="badge bg-success">Active</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary rounded-pill me-1" onclick="copyKey('sk_12345...xyz')"><i class="fas fa-copy"></i></button>
+                                                <button class="btn btn-sm btn-outline-danger rounded-pill" onclick="revokeKey('sk_12345...xyz')"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button class="btn btn-primary rounded-pill mt-3" onclick="generateKey()">Generate New Key</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Simulations -->
+                <div class="col-12">
+                    <div class="card shadow border-0 rounded-3 animate__animated animate__fadeIn" data-wow-delay="0.3s">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4"><i class="fas fa-atom text-primary me-2"></i>Recent Simulations</h3>
+
+                            <input type="text" class="form-control mb-3" id="search-simulations" placeholder="Search simulations...">
+                            <script>
+                                $('#search-simulations').on('input', function() {
+                                    let query = $(this).val().toLowerCase();
+                                    $('.table tbody tr').each(function() {
+                                        let molecule = $(this).find('td:eq(0)').text().toLowerCase();
+                                        let target = $(this).find('td:eq(1)').text().toLowerCase();
+                                        $(this).toggle(molecule.includes(query) || target.includes(query));
+                                    });
+                                });
+                            </script>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Molecule</th>
+                                            <th>Target</th>
+                                            <th>Energy (Hartree)</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Acetaminophen</td>
+                                            <td>COX-2</td>
+                                            <td>-432.123456</td>
+                                            <td>2025-08-03</td>
+                                            <td><span class="badge bg-success">Completed</span></td>
+                                            <td><a href="#" class="btn btn-sm btn-primary rounded-pill">View Details</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ibuprofen</td>
+                                            <td>COX-1</td>
+                                            <td>-398.654321</td>
+                                            <td>2025-08-02</td>
+                                            <td><span class="badge bg-warning">Pending</span></td>
+                                            <td><a href="#" class="btn btn-sm btn-primary rounded-pill">View Details</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Molecular Explorer -->
+                <div class="col-12 col-lg-6">
+                    <div class="card shadow border-0 rounded-3 animate__animated animate__fadeIn" data-wow-delay="0.4s">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4"><i class="fas fa-dna text-primary me-2"></i>Molecular Explorer</h3>
+                            <div class="mol-container-wrapper mx-auto">
+                                <div class="mol-container-sample"></div>
+                            </div>
+                            <button class="btn btn-primary rounded-pill mt-3" onclick="toggleStyle('sample')">Toggle Style</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Progress -->
+                <div class="col-12 col-lg-6">
+                    <div class="card shadow border-0 rounded-3 animate__animated animate__fadeIn" data-wow-delay="0.5s">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4"><i class="fas fa-project-diagram text-primary me-2"></i>Project Progress</h3>
+                            <p>Drug Discovery Project: COX-2 Inhibitor Development</p>
+                            <div class="progress mb-3" style="height: 20px;">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Target Identification</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Molecular Screening</li>
+                                <li><i class="fas fa-spinner text-warning me-2"></i>Quantum Simulation</li>
+                                <li><i class="fas fa-circle text-muted me-2"></i>Clinical Validation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community Activity -->
+                <div class="col-12">
+                    <div class="card shadow border-0 rounded-3 animate__animated animate__fadeIn" data-wow-delay="0.6s">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4"><i class="fas fa-users text-primary me-2"></i>Community Activity</h3>
+                            <ul class="list-unstyled">
+                                <li><a href="https://community.astravida.com/post/123">New forum post: "Optimizing VQE for Drug Binding"</a> - 2 hours ago</li>
+                                <li><a href="https://github.com/astravida/pull/456">Pull request: "Add Qiskit integration to SDK"</a> - Yesterday</li>
+                            </ul>
+                            <a href="https://community.astravida.com" class="btn btn-primary rounded-pill mt-3">Join Discussion</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Dashboard Sections End -->
+
+        <!-- Call to Action Start -->
+        <div class="container-fluid bg-primary py-5">
+            <div class="container text-center">
+                <h2 class="text-white mb-4 fw-bold">Explore Astra Vida</h2>
+                <p class="text-white mb-5">Start a new quantum simulation or dive into our developer resources.</p>
+                <div class="d-flex justify-content-center">
+                    <a href="simulations.html" class="btn btn-outline-light rounded-pill px-4 me-3">New Simulation</a>
+                    <a href="developers.html" class="btn btn-outline-light rounded-pill px-4">Developer Hub</a>
+                </div>
+            </div>
+        </div>
+        <!-- Call to Action End -->
+    </div>
+    <!-- Content End -->
+
+
+
+    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="nameInput" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="nameInput" value="John Doe">
+                </div>
+                <div class="mb-3">
+                    <label for="emailInput" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="emailInput" value="john.doe@example.com">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary rounded-pill" onclick="saveProfile()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function editProfile() {
+        $('#editProfileModal').modal('show');
+    }
+    function saveProfile() {
+        alert('Save Profile: Update name and email');
+        $('#editProfileModal').modal('hide');
+    }
+</script>
+<!-- end of edit profile modal -->
+ 
+
+    <!-- Footer Start -->
+    <div class="bg-dark text-light text-center py-3">
+        All rights reserved Astra Softwares
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../lib/wow/wow.min.js"></script>
+    <script src="../../lib/easing/easing.min.js"></script>
+    <script src="https://3dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+
+    <!-- JavaScript for Dashboard Functionality -->
+    <script>
+        // Initialize WOW.js
+        new WOW().init();
+
+        // Responsive Molecular Explorer
+        function resizeViewer() {
+            const width = $('.mol-container-wrapper').width();
+            const height = window.innerWidth <= 576 ? 150 : window.innerWidth <= 992 ? 200 : 300;
+            $('.mol-container-wrapper').css({ height: `${height}px` });
+            viewerSample.setWidth(width);
+            viewerSample.setHeight(height);
+            viewerSample.render();
+        }
+
+        // Initialize 3Dmol.js
+        let viewerSample = $3Dmol.createViewer($('.mol-container-sample'));
+        viewerSample.addModel(`
+            10
+            Sample Molecule
+            C  0.000000  0.000000  0.000000
+            C  1.400000  0.000000  0.000000
+            N  1.400000  1.200000  0.000000
+            C  0.000000  1.200000  0.000000
+            O  0.000000  0.000000  1.400000
+            C  1.400000  0.000000  1.400000
+            C  2.800000  0.000000  0.000000
+            C  2.800000  1.200000  0.000000
+            N  1.400000  2.400000  0.000000
+            C  0.000000  2.400000  0.000000
+        `, 'xyz');
+        viewerSample.setStyle({}, {stick: {}});
+        viewerSample.zoomTo();
+        viewerSample.render();
+
+        function toggleStyle(mol) {
+            let viewer = eval(`viewer${mol.charAt(0).toUpperCase() + mol.slice(1)}`);
+            let isStick = viewer.getStyle().stick !== undefined;
+            viewer.setStyle({}, isStick ? {sphere: {}} : {stick: {}});
+            viewer.render();
+        }
+
+        // Placeholder functions for dashboard actions
+        function editProfile() {
+            alert('Edit Profile: Redirect to profile edit page or modal');
+        }
+
+        function generateKey() {
+            alert('Generate New API Key: Call /api/keys/generate');
+        }
+
+        function copyKey(key) {
+            navigator.clipboard.writeText(key).then(() => alert('Key copied to clipboard!'));
+        }
+
+        function revokeKey(key) {
+            alert(`Revoke API Key: Call /api/keys/revoke/${key}`);
+        }
+
+        // Dismiss Notifications
+        $(document).on('click', '.close-btn', function() {
+            $(this).parent().fadeOut(300, function() { $(this).remove(); });
+            const count = $('.notifications .d-flex').length - 1;
+            $('.badge.bg-danger').text(count > 0 ? count : '');
+        });
+
+        // Initialize and handle responsiveness
+        $(document).ready(function() {
+            // Resize Molecular Explorer
+            resizeViewer();
+            $(window).resize(resizeViewer);
+        });
+    </script>
+
+
+
+
+    <!-- Template Javascript -->
+    <script src="../../js/main.js"></script>
+</body>
+
+</html>
