@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Astra Vida Developer Tools</title>
+  
+  <!-- Google Fonts: Iceberg -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- 🔷 Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Astra Vida</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#tools">Tools</a></li>
+          <li class="nav-item"><a class="nav-link" href="#viewer">Molecule Viewer</a></li>
+          <li class="nav-item"><a class="nav-link" href="#api">API Reference</a></li>
+          <li class="nav-item"><a class="nav-link" href="#docs">Documentation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#support">Support</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero text-white text-center p-5 vh-100 d-flex align-items-center justify-content-center flex-column">
+    <h1 class="h1" style="font-size: 90px;">Astra Vida Developer Hub</h1> <br>
+    <p style="font-size: 30px; ">Quantum & AI-powered tools to advance science.</p>
+    <canvas id="bg-canvas" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></canvas>
+  </section>
+
+  <!-- Tools Section -->
+  <section id="tools" class="container py-5">
+    <h2 class="text-center mb-4">Developer Tools</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card shadow tool-card">
+          <div class="card-body">
+            <h5 class="card-title">Molecule Viewer</h5>
+            <p class="card-text">Visualize chemical compounds in 3D.</p>
+            <a href="#viewer" class="btn btn-primary">Launch</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow tool-card">
+          <div class="card-body">
+            <h5 class="card-title">Quantum Circuit Visualizer</h5>
+            <p class="card-text">Render quantum gates and simulate logic.</p>
+            <a href="#" class="btn btn-primary disabled">Coming Soon</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow tool-card">
+          <div class="card-body">
+            <h5 class="card-title">API integration</h5>
+            <p class="card-text">Render quantum gates and simulate logic.</p>
+            <a href="#" class="btn btn-primary disabled">Coming Soon</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Molecule Viewer -->
+
+<section id="viewer" class="container-fluid py-5">
+  <h2 class="text-center mb-4">3D Molecule Viewer</h2>
+  <div id="mol-container"></div>
+</section>
+
+
+  <!-- API Reference -->
+  <section id="api" class="container py-5">
+    <h2 class="text-center mb-4">API Reference</h2>
+    <p>Explore Astra Vida's RESTful and GraphQL endpoints for accessing molecular data, AI models, and quantum simulations.</p>
+    <ul>
+      <li><strong>GET /api/molecules</strong> – List available molecules</li>
+      <li><strong>POST /api/simulate</strong> – Run a quantum simulation</li>
+      <li><strong>GET /api/results/:id</strong> – Fetch simulation results</li>
+    </ul>
+  </section>
+
+  <!-- Documentation -->
+  <section id="docs" class="container py-5">
+    <h2 class="text-center mb-4">Documentation</h2>
+    <p>Find installation guides, SDK usage, tutorials and integration steps for all our tools and APIs.</p>
+    <a href="#" class="btn btn-outline-light">View Full Docs (Coming Soon)</a>
+  </section>
+
+  <!-- Support -->
+  <section id="support" class="container py-5 text-center">
+    <h2 class="mb-4">Community & Support</h2>
+    <p>Need help or want to contribute? Join our community forum or get support directly.</p>
+    <a href="#" class="btn btn-outline-success">Join Developer Discord</a>
+    <a href="#" class="btn btn-outline-info ms-2">Contact Support</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center p-4 mt-5 text-muted">
+    © 2025 Astra Vida. All rights reserved.
+  </footer>
+
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://3dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
